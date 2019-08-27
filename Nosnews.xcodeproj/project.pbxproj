@@ -30,6 +30,7 @@
 		C6425AC023155593008D21B1 /* ArticleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425ABF23155593008D21B1 /* ArticleSource.swift */; };
 		C6425AC2231564A9008D21B1 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425AC1231564A9008D21B1 /* NewsService.swift */; };
 		C6425AC6231569AF008D21B1 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425AC5231569AF008D21B1 /* Resources.swift */; };
+		C6425AC823157C4A008D21B1 /* NewsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425AC723157C4A008D21B1 /* NewsDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C6425ABF23155593008D21B1 /* ArticleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSource.swift; sourceTree = "<group>"; };
 		C6425AC1231564A9008D21B1 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		C6425AC5231569AF008D21B1 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		C6425AC723157C4A008D21B1 /* NewsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDataService.swift; sourceTree = "<group>"; };
 		CB497BE408C04FB95FD92C94 /* Pods_Nosnews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nosnews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC027983B18BC62C7B106DC /* Pods-Nosnews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.debug.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 				C6425AC423156828008D21B1 /* Article */,
 				C6425AC323156818008D21B1 /* News */,
 				C6425AC1231564A9008D21B1 /* NewsService.swift */,
+				C6425AC723157C4A008D21B1 /* NewsDataService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				C6425AB72315529B008D21B1 /* ALProgressIndicatorView.swift in Sources */,
 				C6425AB82315529B008D21B1 /* ALRoundedTextField.swift in Sources */,
 				C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */,
+				C6425AC823157C4A008D21B1 /* NewsDataService.swift in Sources */,
 				C6425AB92315529B008D21B1 /* ALRoundedButton.swift in Sources */,
 				C6425AA623154EB6008D21B1 /* PostLaunchViewController.swift in Sources */,
 				C6425AC023155593008D21B1 /* ArticleSource.swift in Sources */,
