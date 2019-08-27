@@ -1,5 +1,5 @@
 //
-//  NewsApi.swift
+//  Resources.swift
 //  Nosnews
 //
 //  Created by Arif Luthfiansyah on 27/08/19.
@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import Moya
 
-enum NewsApi {
-    
-    case headlines(country: String, category: String)
-    
+struct R {
+    struct String {
+        static let baseUrl = "https://newsapi.org/v2/"
+    }
 }
-
