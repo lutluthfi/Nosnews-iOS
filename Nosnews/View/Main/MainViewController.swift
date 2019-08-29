@@ -91,6 +91,12 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleTableViewCell
         let article = self.newsViewModel.articles[indexPath.row]
         
+        for index in 0...Constant.articleCountryCode.count - 1 {
+            if (Constant.articleCountryCode[index] == self.keyCountry) {
+                cell.mCountryLabel.text = Constant.articleCountry[index]
+            }
+        }
+        
         cell.configure(with: article)
         
         return cell

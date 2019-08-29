@@ -19,14 +19,15 @@ class Constant {
     ]
     
     static let articleCountry: [String] = [
-        "United Arab Emirates", "Argentina", "Austria", "Belgium", "Bulgaria", "Brazil",
-        "Canada", "Switzerland", "China", "Colombia", "Cuba", "Czechia", "Germany", "Egypt",
-        "France", "United Kingdom of Great Britain and Northern Ireland", "Greece", "Hong Kong",
-        "Hungary", "Indonesia", "Ireland", "Israel", "India", "Italy", "Japan", "Korea", "Lithuania",
-        "Latvia", "Morocco", "Mexico", "Malaysia", "Nigeria", "Netherlands", "Norway", "New Zealand",
-        "Philippines", "Poland", "Portugal", "Romania", "Serbia", "Russian Federation", "Saudi Arabia",
-        "Sweden", "Singapore", "Slovenia", "Slovakia", "Thailand", "Turkey", "Taiwan", "Ukraine",
-        "United States of America", "Venezuela", "South Africa"
+        "United Arab Emirates", "Argentina", "Austria", "Australia", "Belgium", "Bulgaria",
+        "Brazil", "Canada", "Switzerland", "China", "Colombia", "Cuba", "Czechia", "Germany",
+        "Egypt", "France", "United Kingdom of Great Britain and Northern Ireland", "Greece",
+        "Hong Kong", "Hungary", "Indonesia", "Ireland", "Israel", "India", "Italy", "Japan",
+        "Korea", "Lithuania", "Latvia", "Morocco", "Mexico", "Malaysia", "Nigeria", "Netherlands",
+        "Norway", "New Zealand", "Philippines", "Poland", "Portugal", "Romania", "Serbia",
+        "Russian Federation", "Saudi Arabia", "Sweden", "Singapore", "Slovenia", "Slovakia",
+        "Thailand", "Turkey", "Taiwan", "Ukraine", "United States of America", "Venezuela",
+        "South Africa"
     ]
     
 }
