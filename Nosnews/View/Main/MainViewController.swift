@@ -9,15 +9,17 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     // MARK: - Component View
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
     private let newsViewModel = NewsViewModel()
+    private let progressView = ALProgressIndicatorView(withMessage: nil)
     
     // MARK: - Variable
-    var countryArticle = ""
+    var keyCategory = ""
+    var keyCountry = ""
     
     // MARK: - UIViewController's Function
     override func viewDidLoad() {
@@ -25,9 +27,18 @@ class MainViewController: UIViewController {
         
         self.title = "Top Headlines"
         
+        if keyCategory.isEmpty {
+            self.keyCategory = NewsPreferences.value(defaultValue: "technology",
+                                                     forKey: NewsPreferences.KeyCategory)
+        }
+        if keyCountry.isEmpty {
+            self.keyCountry = NewsPreferences.value(defaultValue: "id",
+                                                    forKey: NewsPreferences.KeyCountry)
+        }
+        
         self.setupTableView()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.attemptFetchHeadlines()
@@ -35,17 +46,26 @@ class MainViewController: UIViewController {
     
     // MARK: - Private's Function
     private func attemptFetchHeadlines() {
+        guard !self.keyCountry.isEmpty, !self.keyCategory.isEmpty else {
+            return
+        }
+        
+        self.progressView.show(superView: self.view)
+        
         self.newsViewModel
-            .fetchHeadlines(from: "id", in: "technology", key: R.String.apiKey) { (state) in
+            .fetchHeadlines(from: self.keyCountry, in: self.keyCategory, key: R.String.apiKey) { (state) in
                 switch state {
                 case .success: self.onFetchHeadlinesSuccess()
                 case .failure: self.onFetchHeadlineFailure()
                 }
         }
     }
-
+    
     private func onFetchHeadlinesSuccess() {
-        self.mTableView.reloadData()
+        DispatchQueue.main.async {
+            self.mTableView.reloadData()
+            self.progressView.dismiss()
+        }
     }
     
     private func onFetchHeadlineFailure() {
@@ -53,14 +73,9 @@ class MainViewController: UIViewController {
         self.showAlert(title: "Error", message: message, completion: nil)
     }
     
-    private func setupCell() {
-        // self.mTableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: "ArticleCell")
-    }
-    
     private func setupTableView() {
         self.mTableView.dataSource = self
         self.mTableView.delegate = self
-        self.setupCell()
     }
     
 }
@@ -74,7 +89,6 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleTableViewCell
-        
         let article = self.newsViewModel.articles[indexPath.row]
         
         cell.configure(with: article)

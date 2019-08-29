@@ -10,12 +10,15 @@ import Foundation
 
 class NewsViewModel {
     
+    // MARK: - Dependency
     fileprivate let service = NewsDataService()
     
+    // MARK: - Variable
     var news: News?
     var articles = [Article]()
     var message: String?
     
+    // MARK: - Service Function
     func fetchHeadlines(from country: String, in category: String, key apiKey: String, completion: @escaping ((ViewModelState) -> Void)) {
         self.service.headlines(country: country, category: category, apiKey: apiKey) { (news, error) in
             if let error = error {

@@ -11,8 +11,9 @@ import UIKit
 
 class ALProgressIndicatorView: UIVisualEffectView {
     
-    // MARK: - Variables
-    var message: String? {
+    // MARK: - Variable
+    private var isShowing = false
+    private var message: String? {
         didSet {
             messageLabel.text = message
             if #available(iOS 11.0, *) {
@@ -27,19 +28,15 @@ class ALProgressIndicatorView: UIVisualEffectView {
         }
     }
     
-    //
     // MARK: - Properties
-    //
-    let blurEffect = UIBlurEffect(style: .dark)
-    let containerView = UIView()
-    let messageLabel: UILabel = UILabel()
-    let defaultIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+    private let blurEffect = UIBlurEffect(style: .dark)
+    private let containerView = UIView()
+    private let messageLabel: UILabel = UILabel()
+    private let defaultIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     
-    //
     // MARK: - Init Functions
-    //
-    init(with message: String) {
-        self.message = message
+    init(withMessage message: String?) {
+        self.message = message ?? "Please wait"
         super.init(effect: blurEffect)
         self.isUserInteractionEnabled = false
         self.addingComponents()
@@ -52,9 +49,7 @@ class ALProgressIndicatorView: UIVisualEffectView {
         self.addingComponents()
     }
     
-    //
     // MARK: - Overried Functions
-    //
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if let window = self.window {
@@ -85,11 +80,11 @@ class ALProgressIndicatorView: UIVisualEffectView {
             self.messageLabel.text = self.message
             self.messageLabel.textAlignment = NSTextAlignment.center
             self.messageLabel.frame = CGRect(x: indicatorSize + 5,
-                                        y: 0,
-                                        width: containerWidth - indicatorSize - 15,
-                                        height: containerHeight)
+                                             y: 0,
+                                             width: containerWidth - indicatorSize - 15,
+                                             height: containerHeight)
             if #available(iOS 11.0, *) {
-                self.messageLabel.textColor = UIColor(named: "ColorText")!
+                self.messageLabel.textColor = UIColor(named: "ColorDark")!
             } else {
                 // Fallback on earlier versions
                 self.messageLabel.textColor = UIColor(red: 0.129,
@@ -101,9 +96,20 @@ class ALProgressIndicatorView: UIVisualEffectView {
         }
     }
     
-    //
+    func show(superView: UIView) {
+        if self.isShowing {
+            self.removeFromSuperview()
+        }
+        superView.addSubview(self)
+        self.isShowing = true
+    }
+    
+    func dismiss() {
+        self.removeFromSuperview()
+        self.isShowing = false
+    }
+    
     // MARK: - Private Functions
-    //
     private func addingComponents() {
         self.contentView.addSubview(self.containerView)
         self.containerView.addSubview(self.messageLabel)
