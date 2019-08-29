@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		10F40D1E3BCDE986C232C6D1 /* Pods_Nosnews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB497BE408C04FB95FD92C94 /* Pods_Nosnews.framework */; };
+		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
+		C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635418523180A9300CF7120 /* NewsPreferences.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
 		C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8D23154476008D21B1 /* MainViewController.swift */; };
 		C6425A9123154476008D21B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425A8F23154476008D21B1 /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
+		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C635418523180A9300CF7120 /* NewsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPreferences.swift; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6425A8B23154476008D21B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6425A8D23154476008D21B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C635417F2318041400CF7120 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				C6425AC5231569AF008D21B1 /* Resources.swift */,
+				C6354180231804DE00CF7120 /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		C635418223180A3D00CF7120 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C6425AC1231564A9008D21B1 /* NewsService.swift */,
+				C6425AC723157C4A008D21B1 /* NewsDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C635418323180A4700CF7120 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6425AC423156828008D21B1 /* Article */,
+				C6425AC323156818008D21B1 /* News */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C635418423180A5800CF7120 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				C635418523180A9300CF7120 /* NewsPreferences.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		C6425A7F23154476008D21B1 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +203,7 @@
 		C6425AA223154E91008D21B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C635417F2318041400CF7120 /* Constant */,
 				C6425ADA2315F920008D21B1 /* Network */,
 				C6425ACE2315EE59008D21B1 /* Extension */,
 				C6425AB22315529B008D21B1 /* ALCustomView.swift */,
@@ -171,7 +211,6 @@
 				C6425AB52315529B008D21B1 /* ALRoundedButton.swift */,
 				C6425AB42315529B008D21B1 /* ALRoundedTextField.swift */,
 				C6425AB023155276008D21B1 /* LeadingToTrailingSegue.swift */,
-				C6425AC5231569AF008D21B1 /* Resources.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -190,10 +229,9 @@
 		C6425ABA231554D3008D21B1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				C6425AC423156828008D21B1 /* Article */,
-				C6425AC323156818008D21B1 /* News */,
-				C6425AC1231564A9008D21B1 /* NewsService.swift */,
-				C6425AC723157C4A008D21B1 /* NewsDataService.swift */,
+				C635418323180A4700CF7120 /* Model */,
+				C635418223180A3D00CF7120 /* Service */,
+				C635418423180A5800CF7120 /* Preferences */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -392,6 +430,7 @@
 				C6425AB62315529B008D21B1 /* ALCustomView.swift in Sources */,
 				C6425AB72315529B008D21B1 /* ALProgressIndicatorView.swift in Sources */,
 				C6425AB82315529B008D21B1 /* ALRoundedTextField.swift in Sources */,
+				C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */,
 				C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */,
 				C6425AC823157C4A008D21B1 /* NewsDataService.swift in Sources */,
 				C6425AB92315529B008D21B1 /* ALRoundedButton.swift in Sources */,
@@ -407,6 +446,7 @@
 				C6425ACB23157FBB008D21B1 /* ViewModelState.swift in Sources */,
 				C6425AC2231564A9008D21B1 /* NewsService.swift in Sources */,
 				C6425AD62315F600008D21B1 /* ArticleViewController.swift in Sources */,
+				C6354181231804DE00CF7120 /* Constant.swift in Sources */,
 				C6425ABC23155515008D21B1 /* News.swift in Sources */,
 				C6425A9423154476008D21B1 /* Nosnews.xcdatamodeld in Sources */,
 			);
