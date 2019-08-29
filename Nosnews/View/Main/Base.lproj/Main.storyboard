@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Y8-ZE-H7O">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,10 +22,14 @@
         <scene sceneID="n1f-Bh-sIq">
             <objects>
                 <navigationController id="7Y8-ZE-H7O" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gj6-f2-S0e">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="gj6-f2-S0e">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ao-G0-dbB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="rJY-7t-pgU" kind="relationship" relationship="rootViewController" id="hLh-QG-K9L"/>
                     </connections>
@@ -40,89 +43,103 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rJY-7t-pgU" customClass="MainViewController" customModule="Nosnews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xiz-Q8-ggo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-Cc-jNl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-Cc-jNl" userLabel="Table View">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="170" id="yvY-Yb-gW2" userLabel="Table Cell View">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="170"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" rowHeight="170" id="yvY-Yb-gW2" userLabel="Table Cell View" customClass="ArticleTableViewCell" customModule="Nosnews" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yvY-Yb-gW2" id="GUn-II-JBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="169.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-RO-uQu" userLabel="Country Label">
-                                                    <rect key="frame" x="20" y="11" width="374" height="16.5"/>
+                                                    <rect key="frame" x="15" y="11" width="345" height="20"/>
                                                     <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-XF-EYs">
-                                                    <rect key="frame" x="314" y="27.5" width="80" height="80"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-XF-EYs" userLabel="Image View">
+                                                    <rect key="frame" x="280" y="31" width="80" height="80"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="eK0-y6-Z4I"/>
                                                         <constraint firstAttribute="width" constant="80" id="efk-3o-jYV"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author + Source Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-PB-mbk" userLabel="Author+Source Name Label">
-                                                    <rect key="frame" x="20" y="107.5" width="374" height="16.5"/>
+                                                    <rect key="frame" x="15" y="111" width="257" height="20"/>
                                                     <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" name="ColorDark"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e04-hW-Pfx" userLabel="Published at Label">
-                                                    <rect key="frame" x="20" y="124" width="374" height="16.5"/>
+                                                    <rect key="frame" x="15" y="131" width="249" height="20"/>
                                                     <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desain Huawei Mate 30 Pro Bocor, Bawa 4 Kamera Belakang Melingkar - Hitekno.com - hitekno.com" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrY-Nv-Q1z" userLabel="Title Label">
-                                                    <rect key="frame" x="20" y="27.5" width="286" height="49"/>
+                                                    <rect key="frame" x="15" y="31" width="257" height="57.5"/>
                                                     <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" name="ColorDark"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                     <size key="shadowOffset" width="0.0" height="0.0"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="4gb-PB-mbk" secondAttribute="trailing" id="071-HA-XzU"/>
                                                 <constraint firstItem="4gb-PB-mbk" firstAttribute="top" secondItem="ICz-XF-EYs" secondAttribute="bottom" id="2PI-dQ-5io"/>
                                                 <constraint firstItem="ICz-XF-EYs" firstAttribute="leading" secondItem="nrY-Nv-Q1z" secondAttribute="trailing" constant="8" id="EGp-g8-s9T"/>
                                                 <constraint firstItem="nrY-Nv-Q1z" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="IME-Iu-q8H"/>
                                                 <constraint firstItem="ICz-XF-EYs" firstAttribute="trailing" secondItem="GUn-II-JBG" secondAttribute="trailingMargin" id="SpX-gx-8pA"/>
                                                 <constraint firstItem="nrY-Nv-Q1z" firstAttribute="top" secondItem="RDg-RO-uQu" secondAttribute="bottom" id="aMX-OP-CSC"/>
                                                 <constraint firstItem="RDg-RO-uQu" firstAttribute="top" secondItem="GUn-II-JBG" secondAttribute="topMargin" id="bI4-aJ-C7K"/>
+                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="trailing" secondItem="nrY-Nv-Q1z" secondAttribute="trailing" id="gR3-U8-9Sf"/>
                                                 <constraint firstItem="e04-hW-Pfx" firstAttribute="top" secondItem="4gb-PB-mbk" secondAttribute="bottom" id="hvZ-Lm-anY"/>
                                                 <constraint firstItem="4gb-PB-mbk" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="kts-p0-rCD"/>
                                                 <constraint firstItem="e04-hW-Pfx" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="kxC-yP-n0T"/>
                                                 <constraint firstItem="RDg-RO-uQu" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="la6-Gf-ZG2"/>
                                                 <constraint firstItem="ICz-XF-EYs" firstAttribute="top" secondItem="RDg-RO-uQu" secondAttribute="bottom" id="nHu-bW-Hxd"/>
                                                 <constraint firstItem="RDg-RO-uQu" firstAttribute="trailing" secondItem="GUn-II-JBG" secondAttribute="trailingMargin" id="sIB-zv-dlI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="e04-hW-Pfx" secondAttribute="trailing" id="uTC-WG-djI"/>
+                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="trailingMargin" secondItem="e04-hW-Pfx" secondAttribute="trailing" id="uTC-WG-djI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="mAuthorAndSourceLabel" destination="4gb-PB-mbk" id="LXy-GZ-Vbt"/>
+                                            <outlet property="mCountryLabel" destination="RDg-RO-uQu" id="hKK-gA-Mbr"/>
+                                            <outlet property="mImageView" destination="ICz-XF-EYs" id="lnY-R5-g7Z"/>
+                                            <outlet property="mPublishedAtLabel" destination="e04-hW-Pfx" id="gx1-U5-PUZ"/>
+                                            <outlet property="mTitleLabel" destination="nrY-Nv-Q1z" id="JEv-Sk-9sK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YTK-Cc-jNl" firstAttribute="top" secondItem="bOJ-YL-vwg" secondAttribute="top" id="XcU-Ts-2NJ"/>
+                            <constraint firstItem="YTK-Cc-jNl" firstAttribute="trailing" secondItem="bOJ-YL-vwg" secondAttribute="trailing" id="eMn-1c-gob"/>
+                            <constraint firstItem="bOJ-YL-vwg" firstAttribute="bottom" secondItem="YTK-Cc-jNl" secondAttribute="bottom" id="sBD-qq-UZZ"/>
+                            <constraint firstItem="YTK-Cc-jNl" firstAttribute="leading" secondItem="bOJ-YL-vwg" secondAttribute="leading" id="vRN-zz-mh6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bOJ-YL-vwg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ha1-gp-wHC"/>
+                    <navigationItem key="navigationItem" id="Ha1-gp-wHC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="Q2g-Hi-usA"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mTableView" destination="YTK-Cc-jNl" id="TM4-hp-kwB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkB-W9-HMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-33.333333333333336" y="387.72321428571428"/>
+            <point key="canvasLocation" x="-34.399999999999999" y="387.25637181409297"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="ColorDark">
-            <color red="0.12941176470588237" green="0.12941176470588237" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

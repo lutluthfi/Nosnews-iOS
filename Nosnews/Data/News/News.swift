@@ -9,29 +9,33 @@
 import Foundation
 
 // MARK: - News
-struct News {
+struct News: Codable {
     let status: String?
     let code: String?
+    let message: String?
     let totalResults: Int?
     let articles: [Article]
-}
-
-extension News: Codable {
     
     enum NewsCodingKey: String, CodingKey {
-        case status
-        case code
-        case totalResults
-        case articles
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: NewsCodingKey.self)
-        
-        self.status = try container.decode(String.self, forKey: .status)
-        self.code = try container.decode(String.self, forKey: .code)
-        self.totalResults = try container.decode(Int.self, forKey: .totalResults)
-        self.articles = try container.decode([Article].self, forKey: .articles)
+        case status = "status"
+        case code = "code"
+        case message = "message"
+        case totalResults = "totalResults"
+        case articles = "articles"
     }
     
 }
+
+//extension News {
+//    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: NewsCodingKey.self)
+//        
+//        self.status = try container.decode(String.self, forKey: .status)
+//        self.code = try container.decode(String.self, forKey: .code)
+//        self.message = try container.decode(String.self, forKey: .message)
+//        self.totalResults = try container.decode(Int.self, forKey: .totalResults)
+//        self.articles = try container.decode([Article].self, forKey: .articles)
+//    }
+//    
+//}

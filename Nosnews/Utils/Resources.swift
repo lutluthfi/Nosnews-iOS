@@ -10,6 +10,7 @@ import Foundation
 
 struct R {
     struct String {
+        static let apiKey = "244a45fffb1d43fc961544a33b285d12"
         static let baseUrl = "https://newsapi.org/v2/"
     }
 }

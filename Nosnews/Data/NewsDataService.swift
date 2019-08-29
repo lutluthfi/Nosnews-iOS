@@ -18,7 +18,8 @@ class NewsDataService {
             let httpHeaderFields = ["Content-Type": "application/json"]
             return defaultEndpoint.adding(newHTTPHeaderFields: httpHeaderFields)
         }
-    })
+    }, plugins: [NetworkLoggerPlugin(verbose: true)])
+    
     
     func headlines(country: String, category: String, apiKey: String, completion: @escaping ((News?, Error?) -> Void)) {
         provider.request(.headlines(country: country, category: category, apiKey: apiKey)) { (result) in

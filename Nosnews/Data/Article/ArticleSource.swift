@@ -9,23 +9,26 @@
 import Foundation
 
 // MARK: - Article Source
-struct ArticleSource {
+struct ArticleSource: Codable {
     let id: String?
     let name: String?
-}
-
-extension ArticleSource: Codable {
     
     enum ArticleSourceCodingKey: String, CodingKey {
-        case id
-        case name
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ArticleSourceCodingKey.self)
-        
-        self.id = try container.decode(String.self, forKey: .id)
-        self.name = try container.decode(String.self, forKey: .name)
+        case id = "id"
+        case name = "name"
     }
     
 }
+
+//extension ArticleSource {
+//    
+//    
+//    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: ArticleSourceCodingKey.self)
+//        
+//        self.id = try container.decode(String.self, forKey: .id)
+//        self.name = try container.decode(String.self, forKey: .name)
+//    }
+//    
+//}

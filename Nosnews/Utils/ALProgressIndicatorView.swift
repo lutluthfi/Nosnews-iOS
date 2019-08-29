@@ -11,13 +11,19 @@ import UIKit
 
 class ALProgressIndicatorView: UIVisualEffectView {
     
-    //
     // MARK: - Variables
-    //
     var message: String? {
         didSet {
             messageLabel.text = message
-            messageLabel.textColor = UIColor(named: "ColorText")!
+            if #available(iOS 11.0, *) {
+                messageLabel.textColor = UIColor(named: "ColorDark")!
+            } else {
+                // Fallback on earlier versions
+                messageLabel.textColor = UIColor.init(red: 0.129,
+                                                      green: 0.129,
+                                                      blue: 0.129,
+                                                      alpha: 0)
+            }
         }
     }
     
@@ -82,7 +88,15 @@ class ALProgressIndicatorView: UIVisualEffectView {
                                         y: 0,
                                         width: containerWidth - indicatorSize - 15,
                                         height: containerHeight)
-            self.messageLabel.textColor = UIColor(named: "ColorText")!
+            if #available(iOS 11.0, *) {
+                self.messageLabel.textColor = UIColor(named: "ColorText")!
+            } else {
+                // Fallback on earlier versions
+                self.messageLabel.textColor = UIColor(red: 0.129,
+                                                      green: 0.129,
+                                                      blue: 0.129,
+                                                      alpha: 0)
+            }
             self.messageLabel.font = UIFont(name: "System", size: 18)
         }
     }
