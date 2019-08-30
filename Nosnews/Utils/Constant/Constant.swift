@@ -10,6 +10,10 @@ import Foundation
 
 class Constant {
     
+    static let articleCategory: [String] = [
+        "Business", "Entertainment", "General", "Health", "Science", "Sports", "Technology"
+    ]
+    
     static let articleCountryCode: [String] = [
         "ae", "ar", "at", "au", "be", "bg", "br", "ca", "ch", "cn", "co", "cu",
         "cz", "de", "eg", "fr", "gb", "gr", "hk", "hu", "id", "ie", "il", "in",

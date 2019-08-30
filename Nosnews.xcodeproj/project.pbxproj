@@ -12,6 +12,8 @@
 		C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635418523180A9300CF7120 /* NewsPreferences.swift */; };
 		C63541892318AA6100CF7120 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63541882318AA6100CF7120 /* CountryCodeViewController.swift */; };
 		C635418C2318B21400CF7120 /* CountryCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C635418B2318B21400CF7120 /* CountryCode.storyboard */; };
+		C63541912318BBD800CF7120 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63541902318BBD800CF7120 /* Category.storyboard */; };
+		C63541932318BBFE00CF7120 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63541922318BBFE00CF7120 /* CategoryViewController.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
 		C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8D23154476008D21B1 /* MainViewController.swift */; };
 		C6425A9123154476008D21B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425A8F23154476008D21B1 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		C635418523180A9300CF7120 /* NewsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPreferences.swift; sourceTree = "<group>"; };
 		C63541882318AA6100CF7120 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryCodeViewController.swift; path = ../Main/CountryCodeViewController.swift; sourceTree = "<group>"; };
 		C635418B2318B21400CF7120 /* CountryCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountryCode.storyboard; sourceTree = "<group>"; };
+		C63541902318BBD800CF7120 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
+		C63541922318BBFE00CF7120 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6425A8B23154476008D21B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6425A8D23154476008D21B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 				C63541882318AA6100CF7120 /* CountryCodeViewController.swift */,
 			);
 			path = CountryCode;
+			sourceTree = "<group>";
+		};
+		C635418F2318BBCA00CF7120 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C63541902318BBD800CF7120 /* Category.storyboard */,
+				C63541922318BBFE00CF7120 /* CategoryViewController.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		C6425A7F23154476008D21B1 = {
@@ -306,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				C6425AD42315F5EE008D21B1 /* Article */,
+				C635418F2318BBCA00CF7120 /* Category */,
 				C635418A2318B1FD00CF7120 /* CountryCode */,
 				C6425AA123154B3A008D21B1 /* Main */,
 				C6425AA023154B30008D21B1 /* Launch */,
@@ -381,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63541912318BBD800CF7120 /* Category.storyboard in Resources */,
 				C6425A9923154478008D21B1 /* LaunchScreen.storyboard in Resources */,
 				C6425AAD231550E2008D21B1 /* NunitoSans-BoldItalic.ttf in Resources */,
 				C6425AAE231550E2008D21B1 /* NunitoSans-Regular.ttf in Resources */,
@@ -446,6 +461,7 @@
 				C6425AB62315529B008D21B1 /* ALCustomView.swift in Sources */,
 				C6425AB72315529B008D21B1 /* ALProgressIndicatorView.swift in Sources */,
 				C6425AB82315529B008D21B1 /* ALRoundedTextField.swift in Sources */,
+				C63541932318BBFE00CF7120 /* CategoryViewController.swift in Sources */,
 				C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */,
 				C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */,
 				C6425AC823157C4A008D21B1 /* NewsDataService.swift in Sources */,

@@ -55,7 +55,15 @@ class MainViewController: UIViewController {
     
     // MARK: - IBAction's Function
     @IBAction func onCategoryBarButtonItem(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Category", bundle: Bundle.main)
         
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "CategoryViewController") as? CategoryViewController else {
+            return
+        }
+        
+        viewController.delegate = self
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func onCountryBarButtonTapped(_ sender: UIBarButtonItem) {
@@ -90,6 +98,8 @@ class MainViewController: UIViewController {
     private func onFetchHeadlinesSuccess() {
         DispatchQueue.main.async {
             self.mTableView.reloadData()
+            self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
+            self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
             self.progressView.dismiss()
         }
     }
@@ -145,10 +155,10 @@ extension MainViewController: UITableViewDelegate {
         
         let article = self.newsViewModel.articles[indexPath.row]
         
-        self.showArticle(article: article)
+        self.goToArticleViewController(article: article)
     }
     
-    func showArticle(article: Article) {
+    func goToArticleViewController(article: Article) {
         let storyboard = UIStoryboard(name: "Article", bundle: Bundle.main)
         
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "ArticleViewController") as? ArticleViewController else {
@@ -162,14 +172,34 @@ extension MainViewController: UITableViewDelegate {
     
 }
 
+// MARK: - CategoryViewControllerDelegate
+extension MainViewController: CategoryViewControllerDelegate {
+    
+    func onSelectedCategory(category: String) {
+        NewsPreferences.value(value: category, forKey: NewsPreferences.KeyCategory)
+        
+        let countryCode = NewsPreferences.value(defaultValue: "id",
+                                                forKey: NewsPreferences.KeyCountry)
+        
+        self.keyCategory = category
+        
+        self.attemptFetchHeadlines(inCountry: countryCode, about: category)
+    }
+    
+}
+
+// MARK: - CountryCodeViewControllerDelegate
 extension MainViewController: CountryCodeViewControllerDelegate {
     
     func onSelectedCountryCode(countryCode: String) {
-        print("CountryCodeDelegate: \(countryCode)")
         NewsPreferences.value(value: countryCode, forKey: NewsPreferences.KeyCountry)
+        
         let category = NewsPreferences.value(defaultValue: "technology",
                                              forKey: NewsPreferences.KeyCategory)
-        // self.attemptFetchHeadlines(inCountry: countryCode, about: category)
+        
+        self.keyCountry = countryCode
+        
+        self.attemptFetchHeadlines(inCountry: countryCode, about: category)
     }
     
 }

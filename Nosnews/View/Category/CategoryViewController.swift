@@ -1,5 +1,5 @@
 //
-//  CountryViewController.swift
+//  CategoryViewController.swift
 //  Nosnews
 //
 //  Created by Arif Luthfiansyah on 30/08/19.
@@ -9,17 +9,17 @@
 import UIKit
 
 // MARK: - Delegate
-protocol CountryCodeViewControllerDelegate {
-    func onSelectedCountryCode(countryCode: String)
+protocol CategoryViewControllerDelegate {
+    func onSelectedCategory(category: String)
 }
 
-class CountryCodeViewController: UIViewController {
+class CategoryViewController: UIViewController {
 
     // MARK: - Component View
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
-    var delegate: CountryCodeViewControllerDelegate?
+    var delegate: CategoryViewControllerDelegate?
     
     // MARK: - UIViewController's Function
     override func viewDidLoad() {
@@ -36,17 +36,17 @@ class CountryCodeViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-extension CountryCodeViewController: UITableViewDataSource {
+extension CategoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constant.articleCountry.count
+        return Constant.articleCategory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCodeCell", for: indexPath)
-        let country = Constant.articleCountry[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
+        let category = Constant.articleCategory[indexPath.row]
         
-        cell.textLabel?.text = country
+        cell.textLabel?.text = category
         
         return cell
     }
@@ -54,7 +54,7 @@ extension CountryCodeViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension CountryCodeViewController: UITableViewDelegate {
+extension CategoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
@@ -63,7 +63,7 @@ extension CountryCodeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let delegate = delegate else { return }
         
-        delegate.onSelectedCountryCode(countryCode: Constant.articleCountryCode[indexPath.row])
+        delegate.onSelectedCategory(category: Constant.articleCategory[indexPath.row])
         
         self.navigationController?.popViewController(animated: true)
     }
