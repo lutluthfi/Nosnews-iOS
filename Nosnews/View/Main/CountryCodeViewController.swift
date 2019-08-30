@@ -18,7 +18,7 @@ class CountryCodeViewController: UIViewController {
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
-    var countryCodeDelegate: CountryCodeViewControllerDelegate?
+    var delegate: CountryCodeViewControllerDelegate?
     
     // MARK: - UIViewController's Function
     override func viewDidLoad() {
@@ -54,7 +54,9 @@ extension CountryCodeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let delegate = delegate else { return }
+        delegate.onSelectedCountryCode(countryCode: Constant.articleCountryCode[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

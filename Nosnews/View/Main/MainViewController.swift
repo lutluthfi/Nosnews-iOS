@@ -11,8 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: - Component View
-    @IBOutlet weak var mLeftBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var mRightBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var mCategoryBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var mCountryBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
@@ -37,27 +37,49 @@ class MainViewController: UIViewController {
         }
         
         self.title = "Top Headlines"
-        self.mLeftBarButtonItem.title = self.keyCategory.uppercased()
-        self.mRightBarButtonItem.title = self.keyCountry.capitalized
+        self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
+        self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
         
         self.setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.attemptFetchHeadlines()
+        
+        guard self.mTableView.visibleCells.isEmpty else {
+            return
+        }
+        
+        self.attemptFetchHeadlines(inCountry: self.keyCountry, about: self.keyCategory)
+    }
+    
+    // MARK: - IBAction's Function
+    @IBAction func onCategoryBarButtonItem(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func onCountryBarButtonTapped(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "CountryCode", bundle: Bundle.main)
+        
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "CountryCodeViewController") as? CountryCodeViewController else {
+            return
+        }
+        
+        viewController.delegate = self
+        
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     // MARK: - Private's Function
-    private func attemptFetchHeadlines() {
-        guard !self.keyCountry.isEmpty, !self.keyCategory.isEmpty else {
+    private func attemptFetchHeadlines(inCountry countryCode: String, about category: String) {
+        guard !countryCode.isEmpty, !category.isEmpty else {
             return
         }
         
         self.progressView.show(superView: self.view)
         
         self.newsViewModel
-            .fetchHeadlines(from: self.keyCountry, in: self.keyCategory, key: R.String.apiKey) { (state) in
+            .fetchHeadlines(from: countryCode, in: category, key: R.String.apiKey) { (state) in
                 switch state {
                 case .success: self.onFetchHeadlinesSuccess()
                 case .failure: self.onFetchHeadlineFailure()
@@ -136,6 +158,18 @@ extension MainViewController: UITableViewDelegate {
         viewController.article = article
         
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+extension MainViewController: CountryCodeViewControllerDelegate {
+    
+    func onSelectedCountryCode(countryCode: String) {
+        print("CountryCodeDelegate: \(countryCode)")
+        NewsPreferences.value(value: countryCode, forKey: NewsPreferences.KeyCountry)
+        let category = NewsPreferences.value(defaultValue: "technology",
+                                             forKey: NewsPreferences.KeyCategory)
+        // self.attemptFetchHeadlines(inCountry: countryCode, about: category)
     }
     
 }

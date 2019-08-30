@@ -130,71 +130,26 @@
                         <viewLayoutGuide key="safeArea" id="bOJ-YL-vwg"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ha1-gp-wHC">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="qdI-ZT-pjq" userLabel="Category Bar Button Item"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="qdI-ZT-pjq" userLabel="Category Bar Button Item">
+                            <connections>
+                                <action selector="onCategoryBarButtonItem:" destination="rJY-7t-pgU" id="bpH-MX-zGm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="Q2g-Hi-usA" userLabel="Country Code Bar Button Item">
                             <connections>
-                                <segue destination="rcO-Am-Buw" kind="show" id="m5F-hd-V42"/>
+                                <action selector="onCountryBarButtonTapped:" destination="rJY-7t-pgU" id="hhe-9i-bPR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mLeftBarButtonItem" destination="qdI-ZT-pjq" id="BrY-wj-EGN"/>
-                        <outlet property="mRightBarButtonItem" destination="Q2g-Hi-usA" id="YEE-qa-SBB"/>
+                        <outlet property="mCategoryBarButtonItem" destination="qdI-ZT-pjq" id="pu6-w1-8gg"/>
+                        <outlet property="mCountryBarButtonItem" destination="Q2g-Hi-usA" id="7bU-qv-kN5"/>
                         <outlet property="mTableView" destination="YTK-Cc-jNl" id="TM4-hp-kwB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zkB-W9-HMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-34.399999999999999" y="387.25637181409297"/>
-        </scene>
-        <!--Country Code View Controller-->
-        <scene sceneID="TvD-Ub-CZX">
-            <objects>
-                <viewController id="rcO-Am-Buw" customClass="CountryCodeViewController" customModule="Nosnews" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="suo-rx-3Fb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cac-sL-At3" userLabel="Table View">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountryCodeCell" textLabel="zI3-jX-LwV" style="IBUITableViewCellStyleDefault" id="llb-JD-goE">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="llb-JD-goE" id="Wah-Yi-Nuu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zI3-jX-LwV">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cac-sL-At3" firstAttribute="leading" secondItem="kE8-XX-WLG" secondAttribute="leading" id="3eH-rk-r02"/>
-                            <constraint firstItem="kE8-XX-WLG" firstAttribute="trailing" secondItem="cac-sL-At3" secondAttribute="trailing" id="CLR-JU-kC3"/>
-                            <constraint firstItem="kE8-XX-WLG" firstAttribute="bottom" secondItem="cac-sL-At3" secondAttribute="bottom" id="dob-aE-h7T"/>
-                            <constraint firstItem="cac-sL-At3" firstAttribute="top" secondItem="kE8-XX-WLG" secondAttribute="top" id="g9L-f4-FXX"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="kE8-XX-WLG"/>
-                    </view>
-                    <connections>
-                        <outlet property="mTableView" destination="cac-sL-At3" id="1vG-gS-faJ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tir-AL-Wzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="841" y="761"/>
         </scene>
     </scenes>
 </document>

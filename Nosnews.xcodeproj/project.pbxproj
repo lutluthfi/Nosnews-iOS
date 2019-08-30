@@ -11,6 +11,7 @@
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635418523180A9300CF7120 /* NewsPreferences.swift */; };
 		C63541892318AA6100CF7120 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63541882318AA6100CF7120 /* CountryCodeViewController.swift */; };
+		C635418C2318B21400CF7120 /* CountryCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C635418B2318B21400CF7120 /* CountryCode.storyboard */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
 		C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8D23154476008D21B1 /* MainViewController.swift */; };
 		C6425A9123154476008D21B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425A8F23154476008D21B1 /* Main.storyboard */; };
@@ -45,7 +46,8 @@
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C635418523180A9300CF7120 /* NewsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPreferences.swift; sourceTree = "<group>"; };
-		C63541882318AA6100CF7120 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
+		C63541882318AA6100CF7120 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryCodeViewController.swift; path = ../Main/CountryCodeViewController.swift; sourceTree = "<group>"; };
+		C635418B2318B21400CF7120 /* CountryCode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CountryCode.storyboard; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6425A8B23154476008D21B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6425A8D23154476008D21B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C635418A2318B1FD00CF7120 /* CountryCode */ = {
+			isa = PBXGroup;
+			children = (
+				C635418B2318B21400CF7120 /* CountryCode.storyboard */,
+				C63541882318AA6100CF7120 /* CountryCodeViewController.swift */,
+			);
+			path = CountryCode;
+			sourceTree = "<group>";
+		};
 		C6425A7F23154476008D21B1 = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +215,6 @@
 			children = (
 				C6425A8F23154476008D21B1 /* Main.storyboard */,
 				C6425A8D23154476008D21B1 /* MainViewController.swift */,
-				C63541882318AA6100CF7120 /* CountryCodeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -296,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				C6425AD42315F5EE008D21B1 /* Article */,
+				C635418A2318B1FD00CF7120 /* CountryCode */,
 				C6425AA123154B3A008D21B1 /* Main */,
 				C6425AA023154B30008D21B1 /* Launch */,
 			);
@@ -375,6 +386,7 @@
 				C6425AAE231550E2008D21B1 /* NunitoSans-Regular.ttf in Resources */,
 				C6425AAC231550E2008D21B1 /* NunitoSans-Italic.ttf in Resources */,
 				C6425A9623154478008D21B1 /* Assets.xcassets in Resources */,
+				C635418C2318B21400CF7120 /* CountryCode.storyboard in Resources */,
 				C6425A9123154476008D21B1 /* Main.storyboard in Resources */,
 				C6425AD82315F609008D21B1 /* Article.storyboard in Resources */,
 				C6425AAF231550E2008D21B1 /* NunitoSans-Bold.ttf in Resources */,
