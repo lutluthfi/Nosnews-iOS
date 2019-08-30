@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hbx-Dj-Wft">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,22 +15,25 @@
             <objects>
                 <viewController storyboardIdentifier="ArticleViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hbx-Dj-Wft" customClass="ArticleViewController" customModule="Nosnews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leD-Js-weW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0N-LD-kF9" userLabel="Title Label">
-                                <rect key="frame" x="163" y="182" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiE-bi-K2U" userLabel="Web View Holder">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5de-GG-bir" firstAttribute="bottom" secondItem="eiE-bi-K2U" secondAttribute="bottom" id="EbK-if-41a"/>
+                            <constraint firstItem="5de-GG-bir" firstAttribute="trailing" secondItem="eiE-bi-K2U" secondAttribute="trailing" id="Fk2-Km-x5Z"/>
+                            <constraint firstItem="eiE-bi-K2U" firstAttribute="top" secondItem="5de-GG-bir" secondAttribute="top" id="XE6-4l-VYD"/>
+                            <constraint firstItem="eiE-bi-K2U" firstAttribute="leading" secondItem="5de-GG-bir" secondAttribute="leading" id="v3f-iu-fsO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5de-GG-bir"/>
                     </view>
                     <connections>
-                        <outlet property="mTitleLabel" destination="J0N-LD-kF9" id="sZz-CA-0Qh"/>
+                        <outlet property="mWebViewContainer" destination="eiE-bi-K2U" id="X0e-he-lC0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mI-R6-Znz" userLabel="First Responder" sceneMemberID="firstResponder"/>
