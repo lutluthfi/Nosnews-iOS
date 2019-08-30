@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
     
     // MARK: - Component View
+    @IBOutlet weak var mLeftBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var mRightBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
@@ -25,16 +27,18 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Top Headlines"
-        
-        if keyCategory.isEmpty {
+        if self.keyCategory.isEmpty {
             self.keyCategory = NewsPreferences.value(defaultValue: "technology",
                                                      forKey: NewsPreferences.KeyCategory)
         }
-        if keyCountry.isEmpty {
+        if self.keyCountry.isEmpty {
             self.keyCountry = NewsPreferences.value(defaultValue: "id",
                                                     forKey: NewsPreferences.KeyCountry)
         }
+        
+        self.title = "Top Headlines"
+        self.mLeftBarButtonItem.title = self.keyCategory.uppercased()
+        self.mRightBarButtonItem.title = self.keyCountry.capitalized
         
         self.setupTableView()
     }

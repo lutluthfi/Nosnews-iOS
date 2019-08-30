@@ -26,13 +26,26 @@ class ArticleTableViewCell: UITableViewCell {
             let publishedAt = item.publishedAt,
             let imageData = NSData(contentsOf: imageUrl)
             else { return }
+        
+        let dateFormatterReceiver = DateFormatter()
+        dateFormatterReceiver.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "id")
+        dateFormatter.amSymbol = "am"
+        dateFormatter.pmSymbol = "pm"
+        dateFormatter.dateFormat = "HH:mm a - MMM, dd"
+        
+        let date = dateFormatterReceiver.date(from: publishedAt)
+        let publishedAtDate = dateFormatter.string(from: date!)
+        
         DispatchQueue.global(qos: .userInitiated).async {
             let image = imageData as Data
             DispatchQueue.main.async {
                 self.mTitleLabel.text = title
                 self.mImageView.image = UIImage(data: image)
-                self.mAuthorAndSourceLabel.text = "\(author) from \(source)"
-                self.mPublishedAtLabel.text = publishedAt
+                self.mAuthorAndSourceLabel.text = "\(author) - \(source)"
+                self.mPublishedAtLabel.text = publishedAtDate
             }
         }
     }

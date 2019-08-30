@@ -10,14 +10,13 @@
 		10F40D1E3BCDE986C232C6D1 /* Pods_Nosnews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB497BE408C04FB95FD92C94 /* Pods_Nosnews.framework */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C635418623180A9300CF7120 /* NewsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635418523180A9300CF7120 /* NewsPreferences.swift */; };
+		C63541892318AA6100CF7120 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63541882318AA6100CF7120 /* CountryCodeViewController.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
 		C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8D23154476008D21B1 /* MainViewController.swift */; };
 		C6425A9123154476008D21B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425A8F23154476008D21B1 /* Main.storyboard */; };
 		C6425A9423154476008D21B1 /* Nosnews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6425A9223154476008D21B1 /* Nosnews.xcdatamodeld */; };
 		C6425A9623154478008D21B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6425A9523154478008D21B1 /* Assets.xcassets */; };
 		C6425A9923154478008D21B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425A9723154478008D21B1 /* LaunchScreen.storyboard */; };
-		C6425AA423154EAA008D21B1 /* PostLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6425AA323154EAA008D21B1 /* PostLaunch.storyboard */; };
-		C6425AA623154EB6008D21B1 /* PostLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425AA523154EB6008D21B1 /* PostLaunchViewController.swift */; };
 		C6425AAC231550E2008D21B1 /* NunitoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6425AA8231550E2008D21B1 /* NunitoSans-Italic.ttf */; };
 		C6425AAD231550E2008D21B1 /* NunitoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6425AA9231550E2008D21B1 /* NunitoSans-BoldItalic.ttf */; };
 		C6425AAE231550E2008D21B1 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6425AAA231550E2008D21B1 /* NunitoSans-Regular.ttf */; };
@@ -46,6 +45,7 @@
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C635418523180A9300CF7120 /* NewsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPreferences.swift; sourceTree = "<group>"; };
+		C63541882318AA6100CF7120 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6425A8B23154476008D21B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6425A8D23154476008D21B1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -54,14 +54,12 @@
 		C6425A9523154478008D21B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6425A9823154478008D21B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6425A9A23154478008D21B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6425AA323154EAA008D21B1 /* PostLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostLaunch.storyboard; sourceTree = "<group>"; };
-		C6425AA523154EB6008D21B1 /* PostLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLaunchViewController.swift; sourceTree = "<group>"; };
 		C6425AA8231550E2008D21B1 /* NunitoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Italic.ttf"; sourceTree = "<group>"; };
 		C6425AA9231550E2008D21B1 /* NunitoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C6425AAA231550E2008D21B1 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
 		C6425AAB231550E2008D21B1 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		C6425AB023155276008D21B1 /* LeadingToTrailingSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeadingToTrailingSegue.swift; sourceTree = "<group>"; };
-		C6425AB22315529B008D21B1 /* ALCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALCustomView.swift; sourceTree = "<group>"; };
+		C6425AB22315529B008D21B1 /* ALCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ALCustomView.swift; path = ../ALCustomView.swift; sourceTree = "<group>"; };
 		C6425AB32315529B008D21B1 /* ALProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALProgressIndicatorView.swift; sourceTree = "<group>"; };
 		C6425AB42315529B008D21B1 /* ALRoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALRoundedTextField.swift; sourceTree = "<group>"; };
 		C6425AB52315529B008D21B1 /* ALRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALRoundedButton.swift; sourceTree = "<group>"; };
@@ -146,6 +144,18 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		C63541872318A32E00CF7120 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6425AB22315529B008D21B1 /* ALCustomView.swift */,
+				C6425AB32315529B008D21B1 /* ALProgressIndicatorView.swift */,
+				C6425AB52315529B008D21B1 /* ALRoundedButton.swift */,
+				C6425AB42315529B008D21B1 /* ALRoundedTextField.swift */,
+				C6425AB023155276008D21B1 /* LeadingToTrailingSegue.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C6425A7F23154476008D21B1 = {
 			isa = PBXGroup;
 			children = (
@@ -185,8 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				C6425A9723154478008D21B1 /* LaunchScreen.storyboard */,
-				C6425AA323154EAA008D21B1 /* PostLaunch.storyboard */,
-				C6425AA523154EB6008D21B1 /* PostLaunchViewController.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			children = (
 				C6425A8F23154476008D21B1 /* Main.storyboard */,
 				C6425A8D23154476008D21B1 /* MainViewController.swift */,
+				C63541882318AA6100CF7120 /* CountryCodeViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -204,13 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				C635417F2318041400CF7120 /* Constant */,
-				C6425ADA2315F920008D21B1 /* Network */,
 				C6425ACE2315EE59008D21B1 /* Extension */,
-				C6425AB22315529B008D21B1 /* ALCustomView.swift */,
-				C6425AB32315529B008D21B1 /* ALProgressIndicatorView.swift */,
-				C6425AB52315529B008D21B1 /* ALRoundedButton.swift */,
-				C6425AB42315529B008D21B1 /* ALRoundedTextField.swift */,
-				C6425AB023155276008D21B1 /* LeadingToTrailingSegue.swift */,
+				C6425ADA2315F920008D21B1 /* Network */,
+				C63541872318A32E00CF7120 /* View */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -367,7 +372,6 @@
 			files = (
 				C6425A9923154478008D21B1 /* LaunchScreen.storyboard in Resources */,
 				C6425AAD231550E2008D21B1 /* NunitoSans-BoldItalic.ttf in Resources */,
-				C6425AA423154EAA008D21B1 /* PostLaunch.storyboard in Resources */,
 				C6425AAE231550E2008D21B1 /* NunitoSans-Regular.ttf in Resources */,
 				C6425AAC231550E2008D21B1 /* NunitoSans-Italic.ttf in Resources */,
 				C6425A9623154478008D21B1 /* Assets.xcassets in Resources */,
@@ -434,7 +438,7 @@
 				C6425A8E23154476008D21B1 /* MainViewController.swift in Sources */,
 				C6425AC823157C4A008D21B1 /* NewsDataService.swift in Sources */,
 				C6425AB92315529B008D21B1 /* ALRoundedButton.swift in Sources */,
-				C6425AA623154EB6008D21B1 /* PostLaunchViewController.swift in Sources */,
+				C63541892318AA6100CF7120 /* CountryCodeViewController.swift in Sources */,
 				C6425AD32315F125008D21B1 /* ArticleTableViewCell.swift in Sources */,
 				C6425AC023155593008D21B1 /* ArticleSource.swift in Sources */,
 				C6425AD02315EE73008D21B1 /* UIViewController+Alert.swift in Sources */,
