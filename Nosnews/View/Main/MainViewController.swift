@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     // MARK: - Component View
     @IBOutlet weak var mCategoryBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var mCountryBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var mSearchBar: UISearchBar!
     @IBOutlet weak var mTableView: UITableView!
     
     // MARK: - Dependency
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
     private let progressView = ALProgressIndicatorView(withMessage: nil)
     
     // MARK: - Variable
+    var filteredData: [Article] = [Article]()
     var keyCategory = ""
     var keyCountry = ""
     
@@ -40,6 +42,7 @@ class MainViewController: UIViewController {
         self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
         self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
         
+        self.setupSearchBar()
         self.setupTableView()
     }
     
@@ -97,6 +100,8 @@ class MainViewController: UIViewController {
     
     private func onFetchHeadlinesSuccess() {
         DispatchQueue.main.async {
+            self.filteredData = self.newsViewModel.articles
+            
             self.mTableView.reloadData()
             self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
             self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
@@ -107,6 +112,10 @@ class MainViewController: UIViewController {
     private func onFetchHeadlineFailure() {
         guard let message = self.newsViewModel.message else { return }
         self.showAlert(title: "Error", message: message, completion: nil)
+    }
+    
+    private func setupSearchBar() {
+        self.mSearchBar.delegate = self
     }
     
     private func setupTableView() {
@@ -120,12 +129,13 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.newsViewModel.articles.count
+        return self.filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell", for: indexPath) as! ArticleTableViewCell
-        let article = self.newsViewModel.articles[indexPath.row]
+        
+        let article = self.filteredData[indexPath.row]
         
         for index in 0...Constant.articleCountryCode.count - 1 {
             if (Constant.articleCountryCode[index] == self.keyCountry) {
@@ -168,6 +178,26 @@ extension MainViewController: UITableViewDelegate {
         viewController.article = article
         
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+}
+
+// MARK: - UISearchBarDelegate
+extension MainViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let data = self.newsViewModel.articles
+        self.filteredData = searchText.isEmpty ? data : data.filter { (item: Article) -> Bool in
+            // If dataItem matches the searchText, return true to include it
+            guard let title = item.title else { return false }
+            
+            return title.range(of: searchText,
+                               options: .caseInsensitive,
+                               range: nil,
+                               locale: nil) != nil
+        }
+        
+        self.mTableView.reloadData()
     }
     
 }

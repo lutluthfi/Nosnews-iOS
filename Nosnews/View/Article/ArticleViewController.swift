@@ -39,6 +39,8 @@ class ArticleViewController: UIViewController {
         
         guard let article = article else { return }
         
+        self.title = article.title ?? ""
+        
         self.attemptWebContent(article: article)
     }
     
