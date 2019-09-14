@@ -31,22 +31,3 @@ struct Article: Codable {
     }
     
 }
-
-//extension Article {
-//    
-//    
-//    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: ArticleCodingKey.self)
-//        
-//        self.source = try container.decode(ArticleSource.self, forKey: .source)
-//        self.author = try container.decode(String.self, forKey: .author)
-//        self.title = try container.decode(String.self, forKey: .title)
-//        self.description = try container.decode(String.self, forKey: .description)
-//        self.url = try container.decode(String.self, forKey: .url)
-//        self.urlToImage = try container.decode(String.self, forKey: .urlToImage)
-//        self.publishedAt = try container.decode(String.self, forKey: .publishedAt)
-//        self.content = try container.decode(String.self, forKey: .content)
-//    }
-//    
-//}

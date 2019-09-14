@@ -8,20 +8,29 @@
 
 import Foundation
 
+enum NewsPreferencesKey: String {
+    case categoryKey = "categoryKey"
+    case countryKey = "countryKey"
+}
+
 class NewsPreferences {
     
+    // MARK: - Static Variable
+    static let sInstances = NewsPreferences()
+    private var mPreferences: UserDefaults
+    
+    private init() {
+        self.mPreferences = UserDefaults.standard
+    }
+    
     // MARK: - Getter Function
-    static func value<T>(defaultValue: T, forKey key: String) -> T {
-        let preferences = UserDefaults.standard
-        return preferences.object(forKey: key) == nil ? defaultValue : preferences.object(forKey: key) as! T
+    func value<T>(defaultValue: T, forKey key: NewsPreferencesKey) -> T {
+        return self.mPreferences.object(forKey: key.rawValue) == nil ?
+            defaultValue : self.mPreferences.object(forKey: key.rawValue) as! T
     }
     
     // MARK: - Setter Function
-    static func value(value: Any, forKey key: String) {
-        UserDefaults.standard.set(value, forKey: key)
+    func value(value: Any, forKey key: NewsPreferencesKey) {
+        self.mPreferences.set(value, forKey: key.rawValue)
     }
-    
-    static let KeyCategory = "NewsCategory"
-    static let KeyCountry = "NewsCountry"
-    
 }

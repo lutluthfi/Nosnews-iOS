@@ -6,9 +6,14 @@ target 'Nosnews' do
   use_frameworks!
 
   # Pods for Nosnews
+  
+  # Pods of Design
   pod 'FittedSheets'
-  pod 'Kingfisher'
   pod 'lottie-ios'
+  # Pods of Productivity
+  pod 'Kingfisher'
   pod 'Moya'
+  pod 'SwiftGen'
+  pod 'RealmSwift'
 
 end

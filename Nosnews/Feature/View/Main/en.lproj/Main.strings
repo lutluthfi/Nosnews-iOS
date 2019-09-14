@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "Author + Source Name"; ObjectID = "4gb-PB-mbk"; */
+"4gb-PB-mbk.text" = "Author + Source Name";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Q2g-Hi-usA"; */
+"Q2g-Hi-usA.title" = "Item";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "RDg-RO-uQu"; */
+"RDg-RO-uQu.text" = "Country";
+
+/* Class = "UILabel"; text = "Published at"; ObjectID = "e04-hW-Pfx"; */
+"e04-hW-Pfx.text" = "Published at";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nrY-Nv-Q1z"; */
+"nrY-Nv-Q1z.text" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "qdI-ZT-pjq"; */
+"qdI-ZT-pjq.title" = "Item";

@@ -19,16 +19,3 @@ struct ArticleSource: Codable {
     }
     
 }
-
-//extension ArticleSource {
-//    
-//    
-//    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: ArticleSourceCodingKey.self)
-//        
-//        self.id = try container.decode(String.self, forKey: .id)
-//        self.name = try container.decode(String.self, forKey: .name)
-//    }
-//    
-//}

@@ -25,17 +25,3 @@ struct News: Codable {
     }
     
 }
-
-//extension News {
-//    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: NewsCodingKey.self)
-//        
-//        self.status = try container.decode(String.self, forKey: .status)
-//        self.code = try container.decode(String.self, forKey: .code)
-//        self.message = try container.decode(String.self, forKey: .message)
-//        self.totalResults = try container.decode(Int.self, forKey: .totalResults)
-//        self.articles = try container.decode([Article].self, forKey: .articles)
-//    }
-//    
-//}

@@ -1,0 +1,4 @@
+DefaultDark             : #202020
+DefaultLight            : #F5F5F5
+SolidBlack              : #000000
+SolidWhite              : #FFFFFF

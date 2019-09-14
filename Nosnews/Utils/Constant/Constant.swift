@@ -34,4 +34,8 @@ class Constant {
         "South Africa"
     ]
     
+    static let articleSource: [String] = [
+        ""
+    ]
+    
 }
