@@ -40,12 +40,12 @@ class MainViewController: UIViewController {
         }
         
         self.title = "Top Headlines"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
         self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
         
         self.setupSearchBar()
         self.setupTableView()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,11 +64,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func onCountryBarButtonTapped(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "CountryCode", bundle: Bundle.main)
-        
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "CountryCodeViewController") as? CountryCodeViewController else {
-            return
-        }
+        let viewController = StoryboardScene.CountryCode.countryCodeViewController.instantiate()
         
         viewController.delegate = self
         
@@ -102,6 +98,7 @@ class MainViewController: UIViewController {
             self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
             
             self.mProgressView.dismiss()
+            self.mRefreshTableView.endRefreshing()
         }
     }
     
@@ -117,7 +114,7 @@ class MainViewController: UIViewController {
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.hidesNavigationBarDuringPresentation = false
-            self.definesPresentationContext = true
+            // self.definesPresentationContext = true
             
             self.mTableView.tableHeaderView = controller.searchBar
             
@@ -128,7 +125,8 @@ class MainViewController: UIViewController {
     private func setupTableView() {
         self.setupTableViewCell()
         
-        self.mRefreshTableView.addRefresh(to: self.mTableView)
+        self.mRefreshTableView.delegate = self
+        self.mRefreshTableView.addRefresh(to: self.mTableView, color: UIColor.black)
         
         self.mTableView.estimatedRowHeight = 200
         self.mTableView.dataSource = self
@@ -221,7 +219,33 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: TableViewRefreshControlDelegate {
     
     func tableViewDidRefresh() {
-        self.attemptFetchHeadlines(inCountry: self.keyCountry, about: self.keyCategory)
+        guard !self.keyCountry.isEmpty, !self.keyCategory.isEmpty else {
+            return
+        }
+        
+        self.mViewModel
+            .fetchHeadlines(from: self.keyCountry, in: self.keyCategory, key: R.String.apiKey) { (state) in
+                switch state {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.filteredData = self.mViewModel.articles
+                        
+                        self.mTableView.reloadData()
+                        
+                        self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
+                        self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
+                        
+                        self.mRefreshTableView.endRefreshing()
+                    }
+                case .failure:
+                    DispatchQueue.main.async {
+                        guard let message = self.mViewModel.message else { return }
+                        self.showAlert(title: "Error", message: message, completion: nil)
+                        
+                        self.mRefreshTableView.endRefreshing()
+                    }
+                }
+        }
     }
     
 }

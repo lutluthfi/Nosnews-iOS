@@ -29,7 +29,7 @@
             </objects>
             <point key="canvasLocation" x="-885" y="389"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Top Headlines-->
         <scene sceneID="BJe-Ee-av8">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rJY-7t-pgU" customClass="MainViewController" customModule="Nosnews" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bOJ-YL-vwg"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ha1-gp-wHC">
+                    <navigationItem key="navigationItem" title="Top Headlines" largeTitleDisplayMode="always" id="Ha1-gp-wHC" userLabel="Navigation Item">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="Q2g-Hi-usA" userLabel="Country Code Bar Button Item">
                             <connections>
                                 <action selector="onCountryBarButtonTapped:" destination="rJY-7t-pgU" id="hhe-9i-bPR"/>

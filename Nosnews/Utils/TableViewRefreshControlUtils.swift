@@ -21,14 +21,15 @@ class TableViewRefreshControlUtils: NSObject {
     // MARK: - Variable
     var title: String = "Pull to refresh"
     
-    func addRefresh(to tableView: UITableView) {
+    func addRefresh(to tableView: UITableView, color: UIColor) {
         self.mRefreshControl.attributedTitle =
             NSAttributedString(string: self.title,
-                               attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                               attributes: [NSAttributedString.Key.foregroundColor: color])
         self.mRefreshControl.addTarget(self,
                                        action: #selector(refresh(_:)),
                                        for: UIControl.Event.valueChanged)
-        self.mRefreshControl.tintColor = .white
+        self.mRefreshControl.tintColor = color
+        
         if #available(iOS 10.0, *) {
             tableView.refreshControl = self.mRefreshControl
         } else {
