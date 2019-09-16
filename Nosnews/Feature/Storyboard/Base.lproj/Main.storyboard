@@ -9,14 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="NunitoSans-Bold.ttf">
-            <string>NunitoSans-Bold</string>
-        </array>
-        <array key="NunitoSans-Regular.ttf">
-            <string>NunitoSans-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="n1f-Bh-sIq">
@@ -48,79 +40,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YTK-Cc-jNl" userLabel="Table View">
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" text="" id="wdO-Cr-VbS" userLabel="Search Bar">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="yes"/>
-                                </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArticleCell" rowHeight="170" id="yvY-Yb-gW2" userLabel="Table Cell View" customClass="ArticleTableViewCell" customModule="Nosnews" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="375" height="170"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0hj-8i-7rX">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yvY-Yb-gW2" id="GUn-II-JBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0hj-8i-7rX" id="Pnh-Wb-eYr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-RO-uQu" userLabel="Country Label">
-                                                    <rect key="frame" x="15" y="11" width="345" height="20"/>
-                                                    <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-XF-EYs" userLabel="Image View">
-                                                    <rect key="frame" x="280" y="31" width="80" height="80"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="eK0-y6-Z4I"/>
-                                                        <constraint firstAttribute="width" constant="80" id="efk-3o-jYV"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author + Source Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-PB-mbk" userLabel="Author+Source Name Label">
-                                                    <rect key="frame" x="15" y="111" width="257" height="20"/>
-                                                    <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Published at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e04-hW-Pfx" userLabel="Published at Label">
-                                                    <rect key="frame" x="15" y="131" width="249" height="20"/>
-                                                    <fontDescription key="fontDescription" name="NunitoSans-Regular" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrY-Nv-Q1z" userLabel="Title Label">
-                                                    <rect key="frame" x="15" y="31" width="257" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="NunitoSans-Bold" family="Nunito Sans" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="top" secondItem="ICz-XF-EYs" secondAttribute="bottom" id="2PI-dQ-5io"/>
-                                                <constraint firstItem="ICz-XF-EYs" firstAttribute="leading" secondItem="nrY-Nv-Q1z" secondAttribute="trailing" constant="8" id="EGp-g8-s9T"/>
-                                                <constraint firstItem="nrY-Nv-Q1z" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="IME-Iu-q8H"/>
-                                                <constraint firstItem="ICz-XF-EYs" firstAttribute="trailing" secondItem="GUn-II-JBG" secondAttribute="trailingMargin" id="SpX-gx-8pA"/>
-                                                <constraint firstItem="nrY-Nv-Q1z" firstAttribute="top" secondItem="RDg-RO-uQu" secondAttribute="bottom" id="aMX-OP-CSC"/>
-                                                <constraint firstItem="RDg-RO-uQu" firstAttribute="top" secondItem="GUn-II-JBG" secondAttribute="topMargin" id="bI4-aJ-C7K"/>
-                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="trailing" secondItem="nrY-Nv-Q1z" secondAttribute="trailing" id="gR3-U8-9Sf"/>
-                                                <constraint firstItem="e04-hW-Pfx" firstAttribute="top" secondItem="4gb-PB-mbk" secondAttribute="bottom" id="hvZ-Lm-anY"/>
-                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="kts-p0-rCD"/>
-                                                <constraint firstItem="e04-hW-Pfx" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="kxC-yP-n0T"/>
-                                                <constraint firstItem="RDg-RO-uQu" firstAttribute="leading" secondItem="GUn-II-JBG" secondAttribute="leadingMargin" id="la6-Gf-ZG2"/>
-                                                <constraint firstItem="ICz-XF-EYs" firstAttribute="top" secondItem="RDg-RO-uQu" secondAttribute="bottom" id="nHu-bW-Hxd"/>
-                                                <constraint firstItem="RDg-RO-uQu" firstAttribute="trailing" secondItem="GUn-II-JBG" secondAttribute="trailingMargin" id="sIB-zv-dlI"/>
-                                                <constraint firstItem="4gb-PB-mbk" firstAttribute="trailingMargin" secondItem="e04-hW-Pfx" secondAttribute="trailing" id="uTC-WG-djI"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <connections>
-                                            <outlet property="mAuthorAndSourceLabel" destination="4gb-PB-mbk" id="LXy-GZ-Vbt"/>
-                                            <outlet property="mCountryLabel" destination="RDg-RO-uQu" id="hKK-gA-Mbr"/>
-                                            <outlet property="mImageView" destination="ICz-XF-EYs" id="lnY-R5-g7Z"/>
-                                            <outlet property="mPublishedAtLabel" destination="e04-hW-Pfx" id="gx1-U5-PUZ"/>
-                                            <outlet property="mTitleLabel" destination="nrY-Nv-Q1z" id="JEv-Sk-9sK"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -149,7 +76,6 @@
                     <connections>
                         <outlet property="mCategoryBarButtonItem" destination="qdI-ZT-pjq" id="pu6-w1-8gg"/>
                         <outlet property="mCountryBarButtonItem" destination="Q2g-Hi-usA" id="7bU-qv-kN5"/>
-                        <outlet property="mSearchBar" destination="wdO-Cr-VbS" id="i3h-cc-270"/>
                         <outlet property="mTableView" destination="YTK-Cc-jNl" id="TM4-hp-kwB"/>
                     </connections>
                 </viewController>

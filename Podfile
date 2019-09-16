@@ -11,6 +11,7 @@ target 'Nosnews' do
   pod 'FittedSheets'
   pod 'lottie-ios'
   # Pods of Productivity
+  pod 'CocoaDebug'
   pod 'Kingfisher'
   pod 'Moya'
   pod 'SwiftGen'
