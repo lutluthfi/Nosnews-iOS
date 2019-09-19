@@ -14,6 +14,8 @@
 		C6085056231A342D0034183F /* SourcesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6085055231A342D0034183F /* SourcesService.swift */; };
 		C6085058231BD6090034183F /* SourcesDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6085057231BD6090034183F /* SourcesDataService.swift */; };
 		C60BEDA5232F2BB200886105 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60BEDA4232F2BB200886105 /* DateUtils.swift */; };
+		C60BEDAE232F3F2700886105 /* bookmark.json in Resources */ = {isa = PBXBuildFile; fileRef = C60BEDAD232F3F2700886105 /* bookmark.json */; };
+		C60BEDB6232F5D5500886105 /* ConstraintUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60BEDB5232F5D5500886105 /* ConstraintUtils.swift */; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C624E808232C8F53006FF254 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FE232C8F52006FF254 /* Article.storyboard */; };
 		C624E809232C8F53006FF254 /* Source.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C624E800232C8F52006FF254 /* Source.storyboard */; };
@@ -70,6 +72,8 @@
 		C6085055231A342D0034183F /* SourcesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesService.swift; sourceTree = "<group>"; };
 		C6085057231BD6090034183F /* SourcesDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourcesDataService.swift; sourceTree = "<group>"; };
 		C60BEDA4232F2BB200886105 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		C60BEDAD232F3F2700886105 /* bookmark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookmark.json; sourceTree = "<group>"; };
+		C60BEDB5232F5D5500886105 /* ConstraintUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintUtils.swift; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C624E7FF232C8F52006FF254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		C624E801232C8F52006FF254 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Source.storyboard; sourceTree = "<group>"; };
@@ -187,11 +191,27 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		C61F13F82323B67500E76EDB /* TableCell */ = {
+		C60BEDA6232F3E0E00886105 /* Body */ = {
 			isa = PBXGroup;
 			children = (
 				C6B8DCAE232EF8C4003B2545 /* ArticleTableViewCell.swift */,
 				C6B8DCAF232EF8C4003B2545 /* ArticleTableViewCell.xib */,
+			);
+			path = Body;
+			sourceTree = "<group>";
+		};
+		C60BEDAC232F3F1600886105 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				C60BEDAD232F3F2700886105 /* bookmark.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		C61F13F82323B67500E76EDB /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				C60BEDA6232F3E0E00886105 /* Body */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -335,6 +355,7 @@
 			children = (
 				C624E814232D2867006FF254 /* AlertUtils.swift */,
 				C635417F2318041400CF7120 /* Constant */,
+				C60BEDB5232F5D5500886105 /* ConstraintUtils.swift */,
 				C63541872318A32E00CF7120 /* CutomView */,
 				C60BEDA4232F2BB200886105 /* DateUtils.swift */,
 				C6425ACE2315EE59008D21B1 /* Extension */,
@@ -456,6 +477,7 @@
 				C624E7FC232C8B75006FF254 /* colors.txt */,
 				C6425AA7231550A6008D21B1 /* Font */,
 				C6425A9A23154478008D21B1 /* Info.plist */,
+				C60BEDAC232F3F1600886105 /* Lottie */,
 				C6425A9223154476008D21B1 /* Nosnews.xcdatamodeld */,
 			);
 			path = App;
@@ -534,6 +556,7 @@
 				C6425A9623154478008D21B1 /* Assets.xcassets in Resources */,
 				C6B8DCB1232EF8C4003B2545 /* ArticleTableViewCell.xib in Resources */,
 				C6425A9123154476008D21B1 /* Main.storyboard in Resources */,
+				C60BEDAE232F3F2700886105 /* bookmark.json in Resources */,
 				C624E80A232C8F53006FF254 /* CountryCode.storyboard in Resources */,
 				C624E808232C8F53006FF254 /* Article.storyboard in Resources */,
 				C6425AAF231550E2008D21B1 /* NunitoSans-Bold.ttf in Resources */,
@@ -636,6 +659,7 @@
 				C6085056231A342D0034183F /* SourcesService.swift in Sources */,
 				C6B4ECA023290A1A00491295 /* PostLaunchScreenViewController.swift in Sources */,
 				C6425AB123155276008D21B1 /* LeadingToTrailingSegue.swift in Sources */,
+				C60BEDB6232F5D5500886105 /* ConstraintUtils.swift in Sources */,
 				C6425ACB23157FBB008D21B1 /* ViewModelState.swift in Sources */,
 				C6425AC2231564A9008D21B1 /* NewsService.swift in Sources */,
 				C6085058231BD6090034183F /* SourcesDataService.swift in Sources */,
