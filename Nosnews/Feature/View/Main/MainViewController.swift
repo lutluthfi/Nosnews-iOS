@@ -39,8 +39,6 @@ class MainViewController: UIViewController {
                                                                forKey: .countryKey)
         }
         
-        self.title = "Top Headlines"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.mCategoryBarButtonItem.title = self.keyCategory.capitalized
         self.mCountryBarButtonItem.title = self.keyCountry.uppercased()
         
