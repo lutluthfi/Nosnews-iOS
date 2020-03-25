@@ -34,4 +34,12 @@ extension AppDIContainer: DashboardFlowCoordinatorFactory {
         return DefaultNewsDashboardViewModel(route: route, fetchTopHeadlineArticlesUseCase: self.makeFetchTopHeadlineArticlesUseCase())
     }
     
+    func makeSearchDashboardViewController(route: SearchDashboardViewModelRouteClosure) -> UIViewController {
+        return SearchDashboardViewController.create(with: self.makeSearchDashboardViewModel(route: route))
+    }
+    
+    private func makeSearchDashboardViewModel(route: SearchDashboardViewModelRouteClosure) -> SearchDashboardViewModel {
+        return DefaultSearchDashboardViewModel(route: route)
+    }
+    
 }
