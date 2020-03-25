@@ -8,6 +8,5 @@ target 'Nosnews' do
   # Pods for Nosnews
   
   pod 'Kingfisher'
-  pod 'Moya'
 
 end

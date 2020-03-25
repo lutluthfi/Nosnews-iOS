@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, StoryboardInstantiable {
+class DashboardViewController: UITabBarController, StoryboardInstantiable {
     
     private var viewModel: DashboardViewModel!
     
