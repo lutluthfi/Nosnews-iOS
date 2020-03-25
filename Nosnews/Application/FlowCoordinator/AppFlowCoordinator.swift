@@ -12,11 +12,9 @@ import UIKit
 final class AppFlowCoordinator {
     
     private let factory: Factory
-    private let navigationController: UINavigationController
     
-    init(factory: Factory, navigationController: UINavigationController) {
+    init(factory: Factory) {
         self.factory = factory
-        self.navigationController = navigationController
     }
     
     func start() {

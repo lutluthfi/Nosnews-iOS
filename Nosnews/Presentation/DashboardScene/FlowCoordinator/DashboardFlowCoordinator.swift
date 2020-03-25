@@ -34,10 +34,10 @@ class DashboardFlowCoordinator {
             let moviesDashboardViewController = self.instantiateMoviesDashboardViewController()
             let searchDashboardViewController = self.instantiateSearchDashboardViewController()
             
-            viewController.viewControllers = [ newsDashboardViewController, moviesDashboardViewController, searchDashboardViewController ]
-            viewController.selectedIndex = 1
-            viewController.selectedViewController = newsDashboardViewController
+            let viewControllers = [ newsDashboardViewController, moviesDashboardViewController, searchDashboardViewController ].map { UINavigationController(rootViewController: $0) }
             
+            viewController.viewControllers = viewControllers
+            self.navigationController.setNavigationBarHidden(self.navigationController.viewControllers.isEmpty, animated: false)
             self.navigationController.pushViewController(viewController, animated: false)
         }
     }
@@ -46,7 +46,7 @@ class DashboardFlowCoordinator {
         let pop = { }
         let route = MoviesDashboardViewModelRouteClosure(pop: pop)
         let viewController = self.factory.makeMoviesDashboardViewController(route: route)
-        viewController.tabBarItem = UITabBarItem(title: "Movies", image: nil, selectedImage: nil)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 0)
         return viewController
     }
     
@@ -54,7 +54,7 @@ class DashboardFlowCoordinator {
         let pop = { }
         let route = NewsDashboardViewModelRouteClosure(pop: pop)
         let viewController = self.factory.makeNewsDashboardViewController(route: route)
-        viewController.tabBarItem = UITabBarItem(title: "News", image: nil, selectedImage: nil)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         return viewController
     }
     
@@ -62,7 +62,7 @@ class DashboardFlowCoordinator {
         let pop = { }
         let route = SearchDashboardViewModelRouteClosure(pop: pop)
         let viewController = self.factory.makeSearchDashboardViewController(route: route)
-        viewController.tabBarItem = UITabBarItem(title: "Search", image: nil, selectedImage: nil)
+        viewController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
         return viewController
     }
 

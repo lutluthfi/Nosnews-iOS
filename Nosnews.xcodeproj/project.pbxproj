@@ -44,6 +44,8 @@
 		4F13CD9C242B2555001BEA97 /* SearchDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */; };
 		4F13CD9D242B2555001BEA97 /* SearchDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */; };
 		4F13CD9E242B2555001BEA97 /* SearchDashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */; };
+		4F13CDA2242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CDA0242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift */; };
+		4F13CDA3242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CDA1242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.xib */; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
@@ -94,6 +96,8 @@
 		4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewController.swift; sourceTree = "<group>"; };
 		4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewModel.swift; sourceTree = "<group>"; };
 		4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDashboardViewController.storyboard; sourceTree = "<group>"; };
+		4F13CDA0242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSearchDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		4F13CDA1242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleSearchDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -380,11 +384,29 @@
 		4F13CD88242B1141001BEA97 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4F13CD9F242B3301001BEA97 /* TableCell */,
 				4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */,
 				4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */,
 				4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		4F13CD9F242B3301001BEA97 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				4F13CDA4242B3336001BEA97 /* Article */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
+		4F13CDA4242B3336001BEA97 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				4F13CDA0242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift */,
+				4F13CDA1242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.xib */,
+			);
+			path = Article;
 			sourceTree = "<group>";
 		};
 		52E343EC2A5A98CEE30DA26D /* Frameworks */ = {
@@ -540,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F13CD43242AE96C001BEA97 /* DashboardViewController.storyboard in Resources */,
+				4F13CDA3242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.xib in Resources */,
 				4F13CD8E242B115A001BEA97 /* NewsDashboardViewController.storyboard in Resources */,
 				C6425A9923154478008D21B1 /* LaunchScreen.storyboard in Resources */,
 				4F13CD98242B1476001BEA97 /* MoviesDashboardViewController.storyboard in Resources */,
@@ -622,6 +645,7 @@
 				4F13CD72242AFBF8001BEA97 /* Article+DTOMapping.swift in Sources */,
 				4F13CD5D242AEEF4001BEA97 /* DataTransferService.swift in Sources */,
 				4F13CD92242B1372001BEA97 /* Observable.swift in Sources */,
+				4F13CDA2242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift in Sources */,
 				4F13CD66242AF889001BEA97 /* AppDIContainer+DashboardFlowCoorindatorFactory.swift in Sources */,
 				4F13CD64242AF082001BEA97 /* AppFlowCoordinator.swift in Sources */,
 				4F13CD41242AE96C001BEA97 /* DashboardViewController.swift in Sources */,

@@ -42,7 +42,7 @@ final class AppDIContainer {
 extension AppDIContainer: FlowCoordinatorFactory {
     
     func instantiateAppFlowCoordinator() -> AppFlowCoordinator {
-        return AppFlowCoordinator(factory: self, navigationController: self.navigationController)
+        return AppFlowCoordinator(factory: self)
     }
     
     func instantiateDashboardFlowCoordinator() -> DashboardFlowCoordinator {
