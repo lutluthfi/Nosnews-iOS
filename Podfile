@@ -7,14 +7,6 @@ target 'Nosnews' do
 
   # Pods for Nosnews
   
-  # Pods of Design
-  pod 'FittedSheets'
-  pod 'lottie-ios'
-  # Pods of Productivity
-  pod 'CocoaDebug'
   pod 'Kingfisher'
-  pod 'Moya'
-  pod 'SwiftGen'
-  pod 'RealmSwift'
 
 end
