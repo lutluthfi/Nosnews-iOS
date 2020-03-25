@@ -13,6 +13,7 @@ protocol DashboardFlowCoordinatorFactory  {
     func makeDashboardViewController(route: DashboardViewModelRouteClosure) -> UIViewController
     func makeMoviesDashboardViewController(route: MoviesDashboardViewModelRouteClosure) -> UIViewController
     func makeNewsDashboardViewController(route: NewsDashboardViewModelRouteClosure) -> UIViewController
+    func makeSearchDashboardViewController(route: SearchDashboardViewModelRouteClosure) -> UIViewController
 }
 
 class DashboardFlowCoordinator {
@@ -31,8 +32,9 @@ class DashboardFlowCoordinator {
             
             let newsDashboardViewController = self.instantiateNewsDashboardViewController()
             let moviesDashboardViewController = self.instantiateMoviesDashboardViewController()
+            let searchDashboardViewController = self.instantiateSearchDashboardViewController()
             
-            viewController.viewControllers = [ newsDashboardViewController, moviesDashboardViewController ]
+            viewController.viewControllers = [ newsDashboardViewController, moviesDashboardViewController, searchDashboardViewController ]
             viewController.selectedIndex = 1
             viewController.selectedViewController = newsDashboardViewController
             
@@ -53,6 +55,14 @@ class DashboardFlowCoordinator {
         let route = NewsDashboardViewModelRouteClosure(pop: pop)
         let viewController = self.factory.makeNewsDashboardViewController(route: route)
         viewController.tabBarItem = UITabBarItem(title: "News", image: nil, selectedImage: nil)
+        return viewController
+    }
+    
+    private func instantiateSearchDashboardViewController() -> UIViewController {
+        let pop = { }
+        let route = SearchDashboardViewModelRouteClosure(pop: pop)
+        let viewController = self.factory.makeSearchDashboardViewController(route: route)
+        viewController.tabBarItem = UITabBarItem(title: "Search", image: nil, selectedImage: nil)
         return viewController
     }
 
