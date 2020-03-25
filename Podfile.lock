@@ -1,56 +1,28 @@
 PODS:
-  - Alamofire (4.8.2)
-  - CocoaDebug (0.7.7)
-  - FittedSheets (1.4.4)
-  - Kingfisher (4.10.1)
-  - lottie-ios (3.1.2)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Realm (3.17.1):
-    - Realm/Headers (= 3.17.1)
-  - Realm/Headers (3.17.1)
-  - RealmSwift (3.17.1):
-    - Realm (= 3.17.1)
-  - Result (4.1.0)
-  - SwiftGen (6.1.0)
+  - Alamofire (5.0.5)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
 
 DEPENDENCIES:
-  - CocoaDebug
-  - FittedSheets
   - Kingfisher
-  - lottie-ios
   - Moya
-  - RealmSwift
-  - SwiftGen
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
-    - CocoaDebug
-    - FittedSheets
     - Kingfisher
-    - lottie-ios
     - Moya
-    - Realm
-    - RealmSwift
-    - Result
-    - SwiftGen
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  CocoaDebug: b00429489a16e963ba3a8e6b5dbcc22f7b264ca3
-  FittedSheets: f56b96c7bd81585d9a183c2a06abe176fa0b55db
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
-  RealmSwift: 4d3c9233544b9cd08a8913e0872b9038eb99b054
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
 
-PODFILE CHECKSUM: 45b5e3f9afb83e4834aea002c66927ec1c732efb
+PODFILE CHECKSUM: 0b6b2d9cd822b187073f5ff44a439a27d8dc6ddb
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.1
