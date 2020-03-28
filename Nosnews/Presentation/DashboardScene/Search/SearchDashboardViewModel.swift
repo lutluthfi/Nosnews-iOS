@@ -20,6 +20,7 @@ protocol SearchDashboardViewModelInput {
 
 protocol SearchDashboardViewModelOutput {
     var displayedArticles: Observable<[Article]> { get }
+    var displayedSources: Observable<[Source]> { get }
 }
 
 protocol SearchDashboardViewModel: SearchDashboardViewModelInput, SearchDashboardViewModelOutput { }
@@ -36,6 +37,7 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     
     // MARK: - OUTPUT
     let displayedArticles: Observable<[Article]> = .init([])
+    let displayedSources: Observable<[Source]> = .init([])
     
     init(route: SearchDashboardViewModelRouteClosure, fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase, fetchSourcesUseCase: FetchSourcesUseCase) {
         self.route = route
@@ -49,6 +51,7 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
 extension DefaultSearchDashboardViewModel {
     
     func viewDidLoad() {
+        self.doFetchSources()
         // self.doFetchTopHeadlingArticles()
     }
     
@@ -62,9 +65,15 @@ extension DefaultSearchDashboardViewModel {
 extension DefaultSearchDashboardViewModel {
     
     private func doFetchSources() {
-        let requestValue = FetchSourcesUseCaseRequestValue(country: "id")
-        self.fetchSourcesUseCaseTask = self.fetchSourcesUseCase.execute(requestValue: requestValue, completion: { (result) in
-            
+        let requestValue = FetchSourcesUseCaseRequestValue(country: nil)
+        self.fetchSourcesUseCaseTask = self.fetchSourcesUseCase.execute(requestValue: requestValue, completion: { [weak self] (result) in
+            guard let unwrappedSelf = self else { return }
+            switch result {
+            case .success(let response):
+                unwrappedSelf.displayedSources.value = response.sources
+                break
+            case .failure(_): break
+            }
         })
     }
     

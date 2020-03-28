@@ -21,7 +21,7 @@ final class DefaultSourcesRepository {
 extension DefaultSourcesRepository: SourcesRepository {
     
     func sources(country: String?, completion: @escaping (Result<SourcePage, Error>) -> Void) -> Cancellable? {
-        let requestDTO = SourceRequestDTO(language: "en", country: country)
+        let requestDTO = SourceRequestDTO(country: country)
         let endpoint = NewsAPIEndpoint.sources(with: requestDTO)
         
         let request = self.dataTransferService.request(with: endpoint) { (result) in

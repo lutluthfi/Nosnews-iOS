@@ -9,7 +9,6 @@
 import Foundation
 
 struct SourceRequestDTO: Encodable {
-    let language: String
     let country: String?
 }
 

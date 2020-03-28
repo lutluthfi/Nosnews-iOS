@@ -49,17 +49,22 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = .blue
+        collectionView.backgroundColor = .clear
+        collectionView.register(self.sourceSearchDashboardCollectionViewCellUINib, forCellWithReuseIdentifier: SourceSearchDashboardCollectionViewCell.identifier)
         return collectionView
     }()
     
     private lazy var articleSearchDashboardTableViewCellUINib: UINib = {
         return UINib(nibName: ArticleSearchDashboardTableViewCell.identifier, bundle: nil)
     }()
+    private lazy var sourceSearchDashboardCollectionViewCellUINib: UINib = {
+        return UINib(nibName: SourceSearchDashboardCollectionViewCell.identifier, bundle: nil)
+    }()
     
     private var viewModel: SearchDashboardViewModel!
     
     private var displayedArticles: [Article] = []
+    private var displayedSources: [Source] = []
     
     class func create(with viewModel: SearchDashboardViewModel) -> SearchDashboardViewController {
         let vc = SearchDashboardViewController.instantiateViewController()
@@ -81,6 +86,9 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     
     private func bind(to viewModel: SearchDashboardViewModel) {
         viewModel.displayedArticles.observe(on: self) { [weak self] in self?.observeDisplayedArticlesViewModel($0) }
+        viewModel.displayedSources.observe(on: self) { [weak self] in
+            self?.observeDisplayedSourcesViewModel($0)
+        }
     }
     
     private func setupViewDidLoad() {
@@ -97,8 +105,13 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     private func observeDisplayedArticlesViewModel(_ displayedArticles: [Article]) {
         self.displayedArticles = displayedArticles
         
-        let indexSet = IndexSet(integer: SearchTableView.Section.news)
-        self.searchTableView.reloadSections(indexSet, with: .none)
+        self.searchTableView.reloadData()
+    }
+    
+    private func observeDisplayedSourcesViewModel(_ displayedSources: [Source]) {
+        self.displayedSources = displayedSources
+        
+        self.sourceCollectionView.reloadData()
     }
     
 }
@@ -116,6 +129,8 @@ extension SearchDashboardViewController {
     }
     
     private func createSourceCollectionView() {
+        self.sourceCollectionView.dataSource = self
+        self.sourceCollectionView.delegate = self
         self.view.addSubview(self.sourceCollectionView)
         self.sourceCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         self.sourceCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -176,6 +191,52 @@ extension SearchDashboardViewController: UITableViewDataSource, UITableViewDeleg
         }
         
         return UITableViewCell()
+    }
+    
+}
+
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate
+extension SearchDashboardViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == self.sourceCollectionView {
+            let sourceName = self.displayedSources[indexPath.row].name
+            let width = sourceName.size(withAttributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13, weight: .regular) ]).width + 16
+            return CGSize(width: width, height: SourceSearchDashboardCollectionViewCell.height)
+        }
+        
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if collectionView == self.sourceCollectionView {
+            return .init(top: .zero, left: 8, bottom: .zero, right: 8)
+        }
+        
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == self.sourceCollectionView {
+            return self.displayedSources.count
+        }
+        
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == self.sourceCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SourceSearchDashboardCollectionViewCell.identifier, for: indexPath) as? SourceSearchDashboardCollectionViewCell else {
+                fatalError("Cannot dequeue reusable cell \(SourceSearchDashboardCollectionViewCell.identifier) with reuseIdentifier \(SourceSearchDashboardCollectionViewCell.identifier)")
+            }
+            
+            let source = self.displayedSources[indexPath.row]
+            cell.fill(with: source)
+            
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
     
 }
