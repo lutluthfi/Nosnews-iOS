@@ -121,8 +121,7 @@ extension DefaultNetworkService: NetworkService {
 
 public class DefaultNetworkSessionManager: NetworkSessionManager {
     public init() {}
-    public func request(_ request: URLRequest,
-                        completion: @escaping CompletionHandler) -> NetworkCancellable {
+    public func request(_ request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
         let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
         task.resume()
         return task

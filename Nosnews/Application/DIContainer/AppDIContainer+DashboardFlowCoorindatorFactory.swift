@@ -43,7 +43,7 @@ extension AppDIContainer: DashboardFlowCoordinatorFactory {
     }
     
     private func makeSearchDashboardViewModel(route: SearchDashboardViewModelRouteClosure) -> SearchDashboardViewModel {
-        return DefaultSearchDashboardViewModel(route: route, fetchTopHeadlineArticlesUseCase: self.makeFetchTopHeadlineArticlesUseCase())
+        return DefaultSearchDashboardViewModel(route: route, fetchTopHeadlineArticlesUseCase: self.makeFetchTopHeadlineArticlesUseCase(), fetchSourcesUseCase: self.makeFetchSourcesUseCase())
     }
     
 }

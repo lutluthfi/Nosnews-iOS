@@ -9,7 +9,7 @@
 import Foundation
 
 struct FetchSourcesUseCaseRequestValue {
-    let country: String
+    let country: String?
 }
 
 protocol FetchSourcesUseCase {

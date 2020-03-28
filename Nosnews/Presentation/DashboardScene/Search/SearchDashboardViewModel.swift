@@ -26,7 +26,10 @@ protocol SearchDashboardViewModel: SearchDashboardViewModelInput, SearchDashboar
 
 class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     
+    private let fetchSourcesUseCase: FetchSourcesUseCase
     private let fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase
+    
+    private var fetchSourcesUseCaseTask: Cancellable?
     private var fetchTopHeadlineArticlesUseCaseTask: Cancellable?
     
     private var route: SearchDashboardViewModelRouteClosure?
@@ -34,9 +37,10 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     // MARK: - OUTPUT
     let displayedArticles: Observable<[Article]> = .init([])
     
-    init(route: SearchDashboardViewModelRouteClosure, fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase) {
+    init(route: SearchDashboardViewModelRouteClosure, fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase, fetchSourcesUseCase: FetchSourcesUseCase) {
         self.route = route
         self.fetchTopHeadlineArticlesUseCase = fetchTopHeadlineArticlesUseCase
+        self.fetchSourcesUseCase = fetchSourcesUseCase
     }
     
 }
@@ -56,6 +60,10 @@ extension DefaultSearchDashboardViewModel {
 
 // MARK: - Private Function
 extension DefaultSearchDashboardViewModel {
+    
+    private func doFetchSources() {
+        let requestValue = FetchSourcesUseCaseRequestValue(country: <#T##String#>)
+    }
     
     private func doFetchTopHeadlingArticles(category: String? = nil, country: String = "id", sources: String? = nil, query: String? = nil) {
         let requestValue = FetchTopHeadlineArticlesRequestValue(category: category, country: country, sources: sources, query: query)

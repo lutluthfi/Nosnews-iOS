@@ -10,7 +10,7 @@ import Foundation
 
 struct SourceRequestDTO: Encodable {
     let language: String
-    let country: String
+    let country: String?
 }
 
 struct SourcePageResponseDTO: Decodable {
