@@ -16,7 +16,7 @@ struct FetchTopHeadlineArticlesRequestValue {
 }
 
 protocol FetchTopHeadlineArticlesUseCase {
-    func execute(requestValue: FetchTopHeadlineArticlesRequestValue, completion: @escaping (Result<ArticlePage, Error>) -> Void)
+    func execute(requestValue: FetchTopHeadlineArticlesRequestValue, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable?
 }
 
 final class DefaultFetchTopHeadlinArticlesUseCase: FetchTopHeadlineArticlesUseCase {
@@ -27,8 +27,8 @@ final class DefaultFetchTopHeadlinArticlesUseCase: FetchTopHeadlineArticlesUseCa
         self.articlesRepository = articlesRepository
     }
     
-    func execute(requestValue: FetchTopHeadlineArticlesRequestValue, completion: @escaping (Result<ArticlePage, Error>) -> Void) {
-        self.articlesRepository.topHeadlineArticles(category: requestValue.category, country: requestValue.country, sources: requestValue.sources, query: requestValue.query) { [weak self] (result) in
+    func execute(requestValue: FetchTopHeadlineArticlesRequestValue, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable? {
+        return self.articlesRepository.topHeadlineArticles(category: requestValue.category, country: requestValue.country, sources: requestValue.sources, query: requestValue.query) { (result) in
             switch result {
             case .success(let response):
                 completion(.success(response))

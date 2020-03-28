@@ -14,6 +14,8 @@ struct SearchDashboardViewModelRouteClosure {
 
 protocol SearchDashboardViewModelInput {
     func viewDidLoad()
+    
+    func doSearch()
 }
 
 protocol SearchDashboardViewModelOutput {
@@ -25,6 +27,7 @@ protocol SearchDashboardViewModel: SearchDashboardViewModelInput, SearchDashboar
 class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     
     private let fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase
+    private var fetchTopHeadlineArticlesUseCaseTask: Cancellable?
     
     private var route: SearchDashboardViewModelRouteClosure?
     
@@ -42,7 +45,11 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
 extension DefaultSearchDashboardViewModel {
     
     func viewDidLoad() {
-        self.doFetchTopHeadlingArticles()
+        // self.doFetchTopHeadlingArticles()
+    }
+    
+    func doSearch() {
+        
     }
     
 }
@@ -52,7 +59,7 @@ extension DefaultSearchDashboardViewModel {
     
     private func doFetchTopHeadlingArticles(category: String? = nil, country: String = "id", sources: String? = nil, query: String? = nil) {
         let requestValue = FetchTopHeadlineArticlesRequestValue(category: category, country: country, sources: sources, query: query)
-        self.fetchTopHeadlineArticlesUseCase.execute(requestValue: requestValue) { [weak self] (result) in
+        self.fetchTopHeadlineArticlesUseCaseTask = self.fetchTopHeadlineArticlesUseCase.execute(requestValue: requestValue) { [weak self] (result) in
             guard let unwrappedSelf = self else { return }
             switch result {
             case .success(let response):

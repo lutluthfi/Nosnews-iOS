@@ -9,7 +9,11 @@
 import Foundation
 
 struct NewsAPIEndpoint {
+    static func sources(with requestDTO: SourceRequestDTO) -> Endpoint<SourcePageResponseDTO> {
+        return .init(path: "sources", method: .get, queryParametersEncodable: requestDTO)
+    }
+    
     static func topHeadlineArticles(with requestDTO: ArticleRequestDTO) -> Endpoint<ArticlePageResponseDTO> {
-        return Endpoint(path: "top-headlines", method: .get, queryParametersEncodable: requestDTO)
+        return .init(path: "top-headlines", method: .get, queryParametersEncodable: requestDTO)
     }
 }

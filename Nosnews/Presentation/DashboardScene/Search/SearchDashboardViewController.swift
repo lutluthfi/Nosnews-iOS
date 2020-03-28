@@ -119,25 +119,11 @@ extension SearchDashboardViewController {
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension SearchDashboardViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return SearchTableView.segments.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if tableView == self.searchTableView {
-            return SearchTableView.segments[section]
-        }
-        
-        return nil
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchTableView {
-            switch section {
-            case SearchTableView.Section.news:
-                return self.displayedArticles.count
-            case SearchTableView.Section.movies:
-                return .zero
+            switch self.searchSegmentedControl.selectedSegmentIndex {
+            case SearchTableView.Section.news: return self.displayedArticles.count
+            case SearchTableView.Section.movies: return .zero
             default: return .zero
             }
         }
@@ -147,7 +133,7 @@ extension SearchDashboardViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == self.searchTableView {
-            switch indexPath.section {
+            switch self.searchSegmentedControl.selectedSegmentIndex {
             case SearchTableView.Section.news: return ArticleSearchDashboardTableViewCell.height
             default: return .zero
             }
@@ -158,14 +144,16 @@ extension SearchDashboardViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.searchTableView {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleSearchDashboardTableViewCell.identifier, for: indexPath) as? ArticleSearchDashboardTableViewCell else {
-                fatalError("Cannot dequeue reusable cell \(ArticleSearchDashboardTableViewCell.identifier) with reuseIdentifier \(ArticleSearchDashboardTableViewCell.identifier)")
+            if self.searchSegmentedControl.selectedSegmentIndex == SearchTableView.Section.news {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleSearchDashboardTableViewCell.identifier, for: indexPath) as? ArticleSearchDashboardTableViewCell else {
+                    fatalError("Cannot dequeue reusable cell \(ArticleSearchDashboardTableViewCell.identifier) with reuseIdentifier \(ArticleSearchDashboardTableViewCell.identifier)")
+                }
+                
+                let article = self.displayedArticles[indexPath.row]
+                cell.fill(with: article)
+                
+                return cell
             }
-            
-            let article = self.displayedArticles[indexPath.row]
-            cell.fill(with: article)
-            
-            return cell
         }
         
         return UITableViewCell()

@@ -1,14 +1,14 @@
 //
-//  DefaultArticlesRepository.swift
+//  DefaultSourcesRepository.swift
 //  Nosnews
 //
-//  Created by Arif Luthfiansyah on 25/03/20.
+//  Created by Arif Luthfiansyah on 28/03/20.
 //  Copyright © 2020 Ayo Development. All rights reserved.
 //
 
 import Foundation
 
-final class DefaultArticlesRepository {
+final class DefaultSourcesRepository {
     
     private let dataTransferService: DataTransferService
     
@@ -18,11 +18,11 @@ final class DefaultArticlesRepository {
     
 }
 
-extension DefaultArticlesRepository: ArticlesRepository {
+extension DefaultSourcesRepository: SourcesRepository {
     
-    func topHeadlineArticles(category: String?, country: String, sources: String?, query: String?, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable? {
-        let requestDTO = ArticleRequestDTO(category: category, country: country, query: query)
-        let endpoint = NewsAPIEndpoint.topHeadlineArticles(with: requestDTO)
+    func sources(country: String, completion: @escaping (Result<SourcePage, Error>) -> Void) -> Cancellable? {
+        let requestDTO = SourceRequestDTO(language: "en", country: country)
+        let endpoint = NewsAPIEndpoint.sources(with: requestDTO)
         
         let request = self.dataTransferService.request(with: endpoint) { (result) in
             switch result {
