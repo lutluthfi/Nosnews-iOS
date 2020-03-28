@@ -12,4 +12,8 @@ extension AppDIContainer: DIUseCaseRepository {
     func makeFetchTopHeadlineArticlesUseCase() -> FetchTopHeadlineArticlesUseCase {
         return DefaultFetchTopHeadlinArticlesUseCase(articlesRepository: self.makeArticlesRepository())
     }
+    
+    func makeFetchSourcesUseCase() -> FetchSourcesUseCase {
+        return DefaultFetchSourcesUseCase(sourcesRepository: self.makeSourcesRepository())
+    }
 }
