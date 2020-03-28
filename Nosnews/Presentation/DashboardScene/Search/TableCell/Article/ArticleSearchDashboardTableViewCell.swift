@@ -10,10 +10,29 @@ import UIKit
 
 class ArticleSearchDashboardTableViewCell: UITableViewCell {
     static let identifier = String(describing: ArticleSearchDashboardTableViewCell.self)
+    static let height = CGFloat(156)
+    
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var publishedDateLabel: UILabel!
+    @IBOutlet weak var sourcesLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.contentLabel.text = ""
+        self.posterImageView.image = nil
+        self.publishedDateLabel.text = ""
+        self.sourcesLabel.text = ""
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        self.posterImageView.round(clipToBounds: true, corner: 8)
+    }
+    
+    func fill(with article: Article) {
+        
     }
     
 }

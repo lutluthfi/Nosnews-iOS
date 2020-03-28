@@ -21,7 +21,7 @@ final class AppDIContainer {
     
     lazy var newsDataTransferService: DataTransferService = {
         let headers: [String: String] = [:]
-        let queryParameters: [String : String] = ["api_key": appConfiguration.NewsAPIKey, "language": NSLocale.preferredLanguages.first ?? "en"]
+        let queryParameters: [String : String] = ["apiKey": appConfiguration.NewsAPIKey, "language": NSLocale.preferredLanguages.first ?? "en"]
         let config = ApiDataNetworkConfig(baseURL: URL(string: appConfiguration.NewsAPIBaseURL)!, headers: headers, queryParameters: queryParameters)
         
         let apiDataNetwork = DefaultNetworkService(config: config)

@@ -9,6 +9,14 @@
 import UIKit
 
 class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
+    struct SearchTableView {
+        struct Section {
+            static let news = 0
+            static let movies = 1
+        }
+        
+        static let segments: [String] = [ "News", "Movies" ]
+    }
     
     lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
@@ -29,7 +37,7 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         return tableView
     }()
     lazy var searchSegmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: [ "News", "Movies" ])
+        let segmentedControl = UISegmentedControl(items: SearchTableView.segments)
         segmentedControl.sizeToFit()
         segmentedControl.selectedSegmentIndex = .zero
         segmentedControl.addTarget(self, action: #selector(self.onSearchSegmentedControlValueChanged(_:)), for: .valueChanged)
@@ -40,6 +48,8 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     }()
     
     private var viewModel: SearchDashboardViewModel!
+    
+    private var displayedArticles: [Article] = []
     
     class func create(with viewModel: SearchDashboardViewModel) -> SearchDashboardViewController {
         let vc = SearchDashboardViewController.instantiateViewController()
@@ -55,20 +65,12 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     }
     
     @objc private func onSearchSegmentedControlValueChanged(_ segmentedControl: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            self.title = "Search News"
-            self.searchController.searchBar.placeholder = "News"
-            break
-        case 1:
-            self.title = "Search Movies"
-            self.searchController.searchBar.placeholder = "Movies"
-            break
-        default: break
-        }
+        self.title = "Search \(SearchTableView.segments[segmentedControl.selectedSegmentIndex])"
+        self.searchController.searchBar.placeholder = SearchTableView.segments[segmentedControl.selectedSegmentIndex]
     }
     
     private func bind(to viewModel: SearchDashboardViewModel) {
+        viewModel.displayedArticles.observe(on: self) { [weak self] in self?.observeDisplayedArticlesViewModel($0) }
     }
     
     private func setupViewDidLoad() {
@@ -80,14 +82,22 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         self.createSearchController()
         self.createTableView()
     }
+    
+    private func observeDisplayedArticlesViewModel(_ displayedArticles: [Article]) {
+        self.displayedArticles = displayedArticles
+        
+        let indexSet = IndexSet(integer: SearchTableView.Section.news)
+        self.searchTableView.reloadSections(indexSet, with: .none)
+    }
+    
 }
 
 // MARK: - Create Function
 extension SearchDashboardViewController {
     
     private func createTableView() {
-        // self.searchTableView.dataSource = self
-        // self.searchTableView.delegate = self
+        self.searchTableView.dataSource = self
+        self.searchTableView.delegate = self
         self.view.addSubview(self.searchTableView)
         self.searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
         self.searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
@@ -102,6 +112,63 @@ extension SearchDashboardViewController {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.definesPresentationContext = true
+    }
+    
+}
+
+// MARK: - UITableViewDataSource, UITableViewDelegate
+extension SearchDashboardViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return SearchTableView.segments.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if tableView == self.searchTableView {
+            return SearchTableView.segments[section]
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == self.searchTableView {
+            switch section {
+            case SearchTableView.Section.news:
+                return self.displayedArticles.count
+            case SearchTableView.Section.movies:
+                return .zero
+            default: return .zero
+            }
+        }
+        
+        return .zero
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == self.searchTableView {
+            switch indexPath.section {
+            case SearchTableView.Section.news: return ArticleSearchDashboardTableViewCell.height
+            default: return .zero
+            }
+        }
+        
+        return .zero
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == self.searchTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleSearchDashboardTableViewCell.identifier, for: indexPath) as? ArticleSearchDashboardTableViewCell else {
+                fatalError("Cannot dequeue reusable cell \(ArticleSearchDashboardTableViewCell.identifier) with reuseIdentifier \(ArticleSearchDashboardTableViewCell.identifier)")
+            }
+            
+            let article = self.displayedArticles[indexPath.row]
+            cell.fill(with: article)
+            
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
 }
