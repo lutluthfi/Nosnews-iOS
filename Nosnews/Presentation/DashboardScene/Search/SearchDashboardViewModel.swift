@@ -62,7 +62,10 @@ extension DefaultSearchDashboardViewModel {
 extension DefaultSearchDashboardViewModel {
     
     private func doFetchSources() {
-        let requestValue = FetchSourcesUseCaseRequestValue(country: <#T##String#>)
+        let requestValue = FetchSourcesUseCaseRequestValue(country: "id")
+        self.fetchSourcesUseCaseTask = self.fetchSourcesUseCase.execute(requestValue: requestValue, completion: { (result) in
+            
+        })
     }
     
     private func doFetchTopHeadlingArticles(category: String? = nil, country: String = "id", sources: String? = nil, query: String? = nil) {

@@ -43,6 +43,16 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         segmentedControl.addTarget(self, action: #selector(self.onSearchSegmentedControlValueChanged(_:)), for: .valueChanged)
         return segmentedControl
     }()
+    lazy var sourceCollectionView: UICollectionView = {
+        let collectionViewFlowLayout = UICollectionViewFlowLayout()
+        collectionViewFlowLayout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.backgroundColor = .blue
+        return collectionView
+    }()
+    
     private lazy var articleSearchDashboardTableViewCellUINib: UINib = {
         return UINib(nibName: ArticleSearchDashboardTableViewCell.identifier, bundle: nil)
     }()
@@ -81,6 +91,7 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         
         self.createSearchController()
         self.createTableView()
+        self.createSourceCollectionView()
     }
     
     private func observeDisplayedArticlesViewModel(_ displayedArticles: [Article]) {
@@ -95,16 +106,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
 // MARK: - Create Function
 extension SearchDashboardViewController {
     
-    private func createTableView() {
-        self.searchTableView.dataSource = self
-        self.searchTableView.delegate = self
-        self.view.addSubview(self.searchTableView)
-        self.searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: .zero).isActive = true
-        self.searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: .zero).isActive = true
-        self.searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: .zero).isActive = true
-        self.searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: .zero).isActive = true
-    }
-    
     private func createSearchController() {
         // self.searchController.delegate = self
         // self.searchController.searchResultsUpdater = self
@@ -112,6 +113,24 @@ extension SearchDashboardViewController {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.definesPresentationContext = true
+    }
+    
+    private func createSourceCollectionView() {
+        self.view.addSubview(self.sourceCollectionView)
+        self.sourceCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.sourceCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.sourceCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        self.sourceCollectionView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    private func createTableView() {
+        self.searchTableView.dataSource = self
+        self.searchTableView.delegate = self
+        self.view.addSubview(self.searchTableView)
+        self.searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        self.searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        self.searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        self.searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
 }

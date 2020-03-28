@@ -414,6 +414,7 @@
 		4F13CD88242B1141001BEA97 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4FF6D914242F38C300BB8F17 /* CollectionCell */,
 				4F13CD9F242B3301001BEA97 /* TableCell */,
 				4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */,
 				4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */,
@@ -458,6 +459,13 @@
 				4FF6D90F242F2BF600BB8F17 /* SourcePage.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		4FF6D914242F38C300BB8F17 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		52E343EC2A5A98CEE30DA26D /* Frameworks */ = {
