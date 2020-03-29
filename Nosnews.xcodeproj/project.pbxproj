@@ -61,6 +61,7 @@
 		4FF6D918242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D916242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.swift */; };
 		4FF6D919242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF6D917242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib */; };
 		4FF6D91D2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D91C2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift */; };
+		4FF6D91F243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D91E243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift */; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
@@ -128,6 +129,7 @@
 		4FF6D916242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSearchDashboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FF6D917242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceSearchDashboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		4FF6D91C2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopHeadlineEndpoint+DTOMapping.swift"; sourceTree = "<group>"; };
+		4FF6D91E243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEverythingArticlesUseCase.swift; sourceTree = "<group>"; };
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			children = (
 				4F13CD84242B0FA2001BEA97 /* FetchTopHeadlineArticlesUseCase.swift */,
 				4FF6D912242F2EB400BB8F17 /* FetchSourcesUseCase.swift */,
+				4FF6D91E243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				C6425AC6231569AF008D21B1 /* Resources.swift in Sources */,
 				4F13CD72242AFBF8001BEA97 /* EverythingEndpoint+DTOMapping.swift in Sources */,
 				4F13CD5D242AEEF4001BEA97 /* DataTransferService.swift in Sources */,
+				4FF6D91F243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift in Sources */,
 				4FF6D90D242F2A7F00BB8F17 /* ArticleSource.swift in Sources */,
 				4F13CD92242B1372001BEA97 /* Observable.swift in Sources */,
 				4F13CDA2242B3330001BEA97 /* ArticleSearchDashboardTableViewCell.swift in Sources */,

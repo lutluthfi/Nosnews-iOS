@@ -116,7 +116,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     private func observeDisplayedSourcesViewModel(_ displayedSources: [Source]) {
         guard !displayedSources.isEmpty else { return }
         self.displayedSources = displayedSources
-        self.viewModel.didSelect(source: displayedSources[0])
         self.sourceCollectionView.reloadData()
     }
     
@@ -244,9 +243,6 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
             
             let source = self.displayedSources[indexPath.row]
             cell.fill(with: source)
-            if let unwrappedSelectedSource = self.selectedSource, unwrappedSelectedSource == source {
-                cell.didSelect()
-            }
             
             return cell
         }

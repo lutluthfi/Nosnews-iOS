@@ -13,13 +13,12 @@ extension NewsAPIEndpoint {
         struct RequestDTO: Encodable {
             let domains: String?
             let fromDateString: String?
-            let language: String
             let sortBy: String?
-            let source: String?
+            let sources: String?
             let toDateString: String?
-            let page: String
-            let pageSize: String
-            let query: String
+            let page: Int
+            let pageSize: Int
+            let q: String
         }
         
         struct ArticlePageResponseDTO: Decodable {
@@ -96,10 +95,10 @@ extension String {
     
     fileprivate func publishedAtDateString() -> String {
         let receivedDateFormatter = DateFormatter()
-        receivedDateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
+        receivedDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         
         if let receivedDate = receivedDateFormatter.date(from: self) {
-            return receivedDate.ddMMMyyyy(separator: "-")
+            return receivedDate.ddMMMyyyy(separator: " ")
         }
         
         return ""

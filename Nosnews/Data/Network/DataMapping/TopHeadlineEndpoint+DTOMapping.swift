@@ -14,7 +14,7 @@ extension NewsAPIEndpoint {
             let category: String?
             let country: String
             let sources: String?
-            let query: String?
+            let q: String?
             let page: String
             let pageSize: String
         }

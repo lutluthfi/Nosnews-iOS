@@ -13,7 +13,6 @@ extension NewsAPIEndpoint {
         struct RequestDTO: Encodable {
             let category: String?
             let country: String?
-            let language: String
         }
         
         struct SourcePageResponseDTO: Decodable {
