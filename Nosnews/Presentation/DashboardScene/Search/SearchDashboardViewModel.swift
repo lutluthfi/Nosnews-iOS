@@ -16,13 +16,12 @@ protocol SearchDashboardViewModelInput {
     func viewDidLoad()
     
     func doSearch(query: String?)
-    func didSelect(source: Source)
+    func didSelect(source: Source?)
 }
 
 protocol SearchDashboardViewModelOutput {
     var displayedArticles: Observable<[Article]> { get }
     var displayedSources: Observable<[Source]> { get }
-    var selectedSource: Observable<Source?> { get }
 }
 
 protocol SearchDashboardViewModel: SearchDashboardViewModelInput, SearchDashboardViewModelOutput { }
@@ -37,10 +36,11 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     
     private var route: SearchDashboardViewModelRouteClosure?
     
+    private var selectedSource: Source? = nil
+    
     // MARK: - OUTPUT
     let displayedArticles: Observable<[Article]> = .init([])
     let displayedSources: Observable<[Source]> = .init([])
-    let selectedSource: Observable<Source?> = .init(nil)
     
     init(route: SearchDashboardViewModelRouteClosure, fetchEverythingArticlesUseCase: FetchEverythingArticlesUseCase, fetchSourcesUseCase: FetchSourcesUseCase) {
         self.route = route
@@ -59,12 +59,12 @@ extension DefaultSearchDashboardViewModel {
     
     func doSearch(query: String?) {
         if let unwrappedQuery = query {
-            self.doFetchEverything(sources: self.selectedSource.value?.id, page: 1, pageSize: 20, query: unwrappedQuery)
+            self.doFetchEverything(sources: self.selectedSource?.id, page: 1, pageSize: 20, query: unwrappedQuery)
         }
     }
     
-    func didSelect(source: Source) {
-        self.selectedSource.value = source
+    func didSelect(source: Source?) {
+        self.selectedSource = source
     }
     
 }

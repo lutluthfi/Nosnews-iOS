@@ -64,7 +64,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     
     private var displayedArticles: [Article] = []
     private var displayedSources: [Source] = []
-    private var selectedSource: Source?
     
     class func create(with viewModel: SearchDashboardViewModel) -> SearchDashboardViewController {
         let vc = SearchDashboardViewController.instantiateViewController()
@@ -91,9 +90,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         viewModel.displayedSources.observe(on: self) { [weak self] in
             self?.observeDisplayedSourcesViewModel($0)
         }
-        viewModel.selectedSource.observe(on: self) { [weak self] in
-            self?.observeSelectedSourceViewModel($0)
-        }
     }
     
     private func setupViewDidLoad() {
@@ -116,11 +112,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     private func observeDisplayedSourcesViewModel(_ displayedSources: [Source]) {
         guard !displayedSources.isEmpty else { return }
         self.displayedSources = displayedSources
-        self.sourceCollectionView.reloadData()
-    }
-    
-    private func observeSelectedSourceViewModel(_ selectedSource: Source?) {
-        self.selectedSource = selectedSource
         self.sourceCollectionView.reloadData()
     }
     
@@ -254,17 +245,18 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
         if collectionView == self.sourceCollectionView {
             if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
                 let source = self.displayedSources[indexPath.row]
-                self.viewModel.didSelect(source: source)
-                cell.didSelect()
+                cell.didSelect { (selected) in
+                    self.viewModel.didSelect(source: selected ? source : nil)
+                }
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.sourceCollectionView {
-            if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
-                cell.didDeselect()
-            }
+            // if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
+            //     cell.didDeselect()
+            // }
         }
     }
     

@@ -28,26 +28,51 @@ class SourceSearchDashboardCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.backgroundColor = nil
+        let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
+        self.round(clipToBounds: true, color: nil, width: .zero, corner: cellCorner)
         self.nameLabel.text = nil
         self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        self.nameLabel.textColor = .white
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.insertSubview(self.blurVisualEffectView, at: .zero)
+        self.backgroundColor = .black
         let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
-        self.round(clipToBounds: true, corner: cellCorner)
+        self.round(clipToBounds: true, color: nil, width: .zero, corner: cellCorner)
         self.nameLabel.textColor = .white
     }
     
-    func didSelect() {
-        self.backgroundColor = .systemBlue
-        self.nameLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+    func didSelect(completion: @escaping (_ selected: Bool) -> Void ) {
+        guard let unwrappedBackgroundColor = self.backgroundColor else { return }
+
+        let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
+        
+        switch unwrappedBackgroundColor {
+        case .black:
+            self.backgroundColor = .white
+            self.round(clipToBounds: true, color: UIColor.black.cgColor, width: 2, corner: cellCorner)
+            self.nameLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+            self.nameLabel.textColor = .darkText
+            completion(true)
+            break
+        case .white:
+            self.backgroundColor = .black
+            self.round(clipToBounds: true, color: nil, width: .zero, corner: cellCorner)
+            self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
+            self.nameLabel.textColor = .white
+            completion(false)
+            break
+        default: break
+        }
     }
     
     func didDeselect() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .black
+        let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
+        self.round(clipToBounds: true, color: nil, width: .zero, corner: cellCorner)
         self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
+        self.nameLabel.textColor = .white
     }
     
     func fill(with source: Source) {
