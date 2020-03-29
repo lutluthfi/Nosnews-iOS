@@ -13,6 +13,8 @@ struct FetchTopHeadlineArticlesRequestValue {
     let country: String
     let sources: String?
     let query: String?
+    let page: String
+    let pageSize: String
 }
 
 protocol FetchTopHeadlineArticlesUseCase {
@@ -28,7 +30,7 @@ final class DefaultFetchTopHeadlinArticlesUseCase: FetchTopHeadlineArticlesUseCa
     }
     
     func execute(requestValue: FetchTopHeadlineArticlesRequestValue, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable? {
-        return self.articlesRepository.topHeadlineArticles(category: requestValue.category, country: requestValue.country, sources: requestValue.sources, query: requestValue.query) { (result) in
+        return self.articlesRepository.topHeadlineArticles(category: requestValue.category, country: requestValue.country, sources: requestValue.sources, query: requestValue.query, page: requestValue.page, pageSize: requestValue.pageSize) { (result) in
             switch result {
             case .success(let response):
                 completion(.success(response))

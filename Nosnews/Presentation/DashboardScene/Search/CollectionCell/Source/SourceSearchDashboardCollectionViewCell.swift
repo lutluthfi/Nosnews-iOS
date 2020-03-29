@@ -10,7 +10,7 @@ import UIKit
 
 class SourceSearchDashboardCollectionViewCell: UICollectionViewCell {
     static let identifier = String(describing: SourceSearchDashboardCollectionViewCell.self)
-    static let height = CGFloat(24)
+    static let height = CGFloat(32)
     static let width = CGFloat(64)
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,16 +25,12 @@ class SourceSearchDashboardCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        self.nameLabel.text = ""
-//        for (index, view) in self.subviews.enumerated() {
-//            if view == self.blurVisualEffectView {
-//                self.subviews.remove(at: index)
-//                break
-//            }
-//        }
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.backgroundColor = nil
+        self.nameLabel.text = nil
+        self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +38,16 @@ class SourceSearchDashboardCollectionViewCell: UICollectionViewCell {
         let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
         self.round(clipToBounds: true, corner: cellCorner)
         self.nameLabel.textColor = .white
+    }
+    
+    func didSelect() {
+        self.backgroundColor = .systemBlue
+        self.nameLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+    }
+    
+    func didDeselect() {
+        self.backgroundColor = .clear
+        self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
     }
     
     func fill(with source: Source) {

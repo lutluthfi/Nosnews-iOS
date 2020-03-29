@@ -9,6 +9,7 @@
 import Foundation
 
 struct FetchSourcesUseCaseRequestValue {
+    let category: String?
     let country: String?
 }
 
@@ -25,7 +26,7 @@ final class DefaultFetchSourcesUseCase: FetchSourcesUseCase {
     }
     
     func execute(requestValue: FetchSourcesUseCaseRequestValue, completion: @escaping (Result<SourcePage, Error>) -> Void) -> Cancellable? {
-        return self.sourcesRepository.sources(country: requestValue.country) { (result) in
+        return self.sourcesRepository.sources(category: requestValue.category, country: requestValue.country) { (result) in
             switch result {
             case .success(let response):
                 completion(.success(response))

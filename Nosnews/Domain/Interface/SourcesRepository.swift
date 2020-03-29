@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SourcesRepository {
-    func sources(country: String?, completion: @escaping (Result<SourcePage, Error>) -> Void) -> Cancellable?
+    func sources(category: String?, country: String?, completion: @escaping (Result<SourcePage, Error>) -> Void) -> Cancellable?
 }

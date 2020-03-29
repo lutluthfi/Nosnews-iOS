@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Source {
+struct Source: Hashable {
     let id: String
     let name: String
     let description: String
@@ -16,4 +16,13 @@ struct Source {
     let category: String
     let language: String
     let country: String
+    
+    public static func == (lhs: Source, rhs: Source) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+    }
+    
 }

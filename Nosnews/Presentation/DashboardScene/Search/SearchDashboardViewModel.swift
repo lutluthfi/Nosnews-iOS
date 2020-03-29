@@ -15,12 +15,14 @@ struct SearchDashboardViewModelRouteClosure {
 protocol SearchDashboardViewModelInput {
     func viewDidLoad()
     
-    func doSearch()
+    func doSearch(query: String?)
+    func didSelect(source: Source)
 }
 
 protocol SearchDashboardViewModelOutput {
     var displayedArticles: Observable<[Article]> { get }
     var displayedSources: Observable<[Source]> { get }
+    var selectedSource: Observable<Source?> { get }
 }
 
 protocol SearchDashboardViewModel: SearchDashboardViewModelInput, SearchDashboardViewModelOutput { }
@@ -38,6 +40,7 @@ class DefaultSearchDashboardViewModel: SearchDashboardViewModel {
     // MARK: - OUTPUT
     let displayedArticles: Observable<[Article]> = .init([])
     let displayedSources: Observable<[Source]> = .init([])
+    let selectedSource: Observable<Source?> = .init(nil)
     
     init(route: SearchDashboardViewModelRouteClosure, fetchTopHeadlineArticlesUseCase: FetchTopHeadlineArticlesUseCase, fetchSourcesUseCase: FetchSourcesUseCase) {
         self.route = route
@@ -52,11 +55,16 @@ extension DefaultSearchDashboardViewModel {
     
     func viewDidLoad() {
         self.doFetchSources()
-        // self.doFetchTopHeadlingArticles()
     }
     
-    func doSearch() {
-        
+    func doSearch(query: String?) {
+        if let unwrappedSelectedSource = self.selectedSource.value {
+            self.doFetchTopHeadlingArticles(sources: unwrappedSelectedSource.id)
+        }
+    }
+    
+    func didSelect(source: Source) {
+        self.selectedSource.value = source
     }
     
 }
@@ -65,7 +73,7 @@ extension DefaultSearchDashboardViewModel {
 extension DefaultSearchDashboardViewModel {
     
     private func doFetchSources() {
-        let requestValue = FetchSourcesUseCaseRequestValue(country: nil)
+        let requestValue = FetchSourcesUseCaseRequestValue(category: nil, country: nil)
         self.fetchSourcesUseCaseTask = self.fetchSourcesUseCase.execute(requestValue: requestValue, completion: { [weak self] (result) in
             guard let unwrappedSelf = self else { return }
             switch result {
@@ -78,7 +86,7 @@ extension DefaultSearchDashboardViewModel {
     }
     
     private func doFetchTopHeadlingArticles(category: String? = nil, country: String = "id", sources: String? = nil, query: String? = nil) {
-        let requestValue = FetchTopHeadlineArticlesRequestValue(category: category, country: country, sources: sources, query: query)
+        let requestValue = FetchTopHeadlineArticlesRequestValue(category: category, country: country, sources: self.selectedSource.value?.id, query: query, page: "1", pageSize: "20")
         self.fetchTopHeadlineArticlesUseCaseTask = self.fetchTopHeadlineArticlesUseCase.execute(requestValue: requestValue) { [weak self] (result) in
             guard let unwrappedSelf = self else { return }
             switch result {

@@ -25,7 +25,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         }
         controller.obscuresBackgroundDuringPresentation = false
         controller.searchBar.autocapitalizationType = .words
-        
         return controller
     }()
     lazy var searchTableView: UITableView = {
@@ -65,6 +64,7 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     
     private var displayedArticles: [Article] = []
     private var displayedSources: [Source] = []
+    private var selectedSource: Source?
     
     class func create(with viewModel: SearchDashboardViewModel) -> SearchDashboardViewController {
         let vc = SearchDashboardViewController.instantiateViewController()
@@ -85,9 +85,14 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func bind(to viewModel: SearchDashboardViewModel) {
-        viewModel.displayedArticles.observe(on: self) { [weak self] in self?.observeDisplayedArticlesViewModel($0) }
+        viewModel.displayedArticles.observe(on: self) { [weak self] in
+            self?.observeDisplayedArticlesViewModel($0)
+        }
         viewModel.displayedSources.observe(on: self) { [weak self] in
             self?.observeDisplayedSourcesViewModel($0)
+        }
+        viewModel.selectedSource.observe(on: self) { [weak self] in
+            self?.observeSelectedSourceViewModel($0)
         }
     }
     
@@ -109,8 +114,14 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func observeDisplayedSourcesViewModel(_ displayedSources: [Source]) {
+        guard !displayedSources.isEmpty else { return }
         self.displayedSources = displayedSources
-        
+        self.viewModel.didSelect(source: displayedSources[0])
+        self.sourceCollectionView.reloadData()
+    }
+    
+    private func observeSelectedSourceViewModel(_ selectedSource: Source?) {
+        self.selectedSource = selectedSource
         self.sourceCollectionView.reloadData()
     }
     
@@ -122,7 +133,7 @@ extension SearchDashboardViewController {
     private func createSearchController() {
         // self.searchController.delegate = self
         // self.searchController.searchResultsUpdater = self
-        // self.searchController.searchBar.delegate = self
+        self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
         self.definesPresentationContext = true
@@ -201,8 +212,9 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == self.sourceCollectionView {
             let sourceName = self.displayedSources[indexPath.row].name
+            let height = SourceSearchDashboardCollectionViewCell.height
             let width = sourceName.size(withAttributes: [ NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13, weight: .regular) ]).width + 16
-            return CGSize(width: width, height: SourceSearchDashboardCollectionViewCell.height)
+            return CGSize(width: width, height: height)
         }
         
         return .zero
@@ -232,11 +244,42 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
             
             let source = self.displayedSources[indexPath.row]
             cell.fill(with: source)
+            if let unwrappedSelectedSource = self.selectedSource, unwrappedSelectedSource == source {
+                cell.didSelect()
+            }
             
             return cell
         }
         
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.sourceCollectionView {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
+                let source = self.displayedSources[indexPath.row]
+                self.viewModel.didSelect(source: source)
+                cell.didSelect()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == self.sourceCollectionView {
+            if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
+                cell.didDeselect()
+            }
+        }
+    }
+    
+}
+
+// MARK: - ScrollView Function
+extension SearchDashboardViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let query = searchBar.text
+        self.viewModel.doSearch(query: query)
     }
     
 }

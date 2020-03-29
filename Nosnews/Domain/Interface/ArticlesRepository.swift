@@ -10,5 +10,8 @@ import Foundation
 
 protocol ArticlesRepository {
     @discardableResult
-    func topHeadlineArticles(category: String?, country: String, sources: String?, query: String?, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable?
+    func everythingArticles(domains: String?, fromDateString: String?, language: String, sortBy: String?, source: String?, toDateString: String?, page: String, pageSize: String, query: String, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable?
+    
+    @discardableResult
+    func topHeadlineArticles(category: String?, country: String, sources: String?, query: String?, page: String, pageSize: String, completion: @escaping (Result<ArticlePage, Error>) -> Void) -> Cancellable?
 }
