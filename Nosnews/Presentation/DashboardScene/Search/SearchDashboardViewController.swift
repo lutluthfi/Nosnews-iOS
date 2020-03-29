@@ -49,7 +49,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
-        collectionView.register(self.sourceSearchDashboardCollectionViewCellUINib, forCellWithReuseIdentifier: SourceSearchDashboardCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -112,6 +111,9 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     private func observeDisplayedSourcesViewModel(_ displayedSources: [Source]) {
         guard !displayedSources.isEmpty else { return }
         self.displayedSources = displayedSources
+        
+        displayedSources.forEach { self.sourceCollectionView.register(self.sourceSearchDashboardCollectionViewCellUINib, forCellWithReuseIdentifier: "\(SourceSearchDashboardCollectionViewCell.identifier)\($0.name)") }
+        
         self.sourceCollectionView.reloadData()
     }
     
@@ -121,8 +123,6 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
 extension SearchDashboardViewController {
     
     private func createSearchController() {
-        // self.searchController.delegate = self
-        // self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = true
@@ -228,11 +228,13 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.sourceCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SourceSearchDashboardCollectionViewCell.identifier, for: indexPath) as? SourceSearchDashboardCollectionViewCell else {
+            
+            let source = self.displayedSources[indexPath.row]
+            
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SourceSearchDashboardCollectionViewCell.identifier)\(source.name)", for: indexPath) as? SourceSearchDashboardCollectionViewCell else {
                 fatalError("Cannot dequeue reusable cell \(SourceSearchDashboardCollectionViewCell.identifier) with reuseIdentifier \(SourceSearchDashboardCollectionViewCell.identifier)")
             }
             
-            let source = self.displayedSources[indexPath.row]
             cell.fill(with: source)
             
             return cell
@@ -244,7 +246,9 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.sourceCollectionView {
             if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
+                
                 let source = self.displayedSources[indexPath.row]
+                
                 cell.didSelect { (selected) in
                     self.viewModel.didSelect(source: selected ? source : nil)
                 }
@@ -254,9 +258,9 @@ extension SearchDashboardViewController: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.sourceCollectionView {
-            // if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
-            //     cell.didDeselect()
-            // }
+            if let cell = collectionView.cellForItem(at: indexPath) as? SourceSearchDashboardCollectionViewCell {
+                cell.didDeselect()
+            }
         }
     }
     

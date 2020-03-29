@@ -62,6 +62,7 @@
 		4FF6D919242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF6D917242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib */; };
 		4FF6D91D2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D91C2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift */; };
 		4FF6D91F243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D91E243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift */; };
+		4FF6D9212430A52A00BB8F17 /* UIView+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF6D9202430A52A00BB8F17 /* UIView+Loading.swift */; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
@@ -130,6 +131,7 @@
 		4FF6D917242F84BA00BB8F17 /* SourceSearchDashboardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SourceSearchDashboardCollectionViewCell.xib; sourceTree = "<group>"; };
 		4FF6D91C2430915B00BB8F17 /* TopHeadlineEndpoint+DTOMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopHeadlineEndpoint+DTOMapping.swift"; sourceTree = "<group>"; };
 		4FF6D91E243094A400BB8F17 /* FetchEverythingArticlesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchEverythingArticlesUseCase.swift; sourceTree = "<group>"; };
+		4FF6D9202430A52A00BB8F17 /* UIView+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loading.swift"; sourceTree = "<group>"; };
 		C00B974A3EE31B2C158163D8 /* Pods-Nosnews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nosnews.release.xcconfig"; path = "Target Support Files/Pods-Nosnews/Pods-Nosnews.release.xcconfig"; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				4FF6D8FA242F132300BB8F17 /* UIColor.swift */,
 				4FF6D8FB242F132300BB8F17 /* UIImage.swift */,
 				4FF6D8FC242F132300BB8F17 /* UILabel.swift */,
+				4FF6D9202430A52A00BB8F17 /* UIView+Loading.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */,
 				4FF6D901242F132300BB8F17 /* UILabel.swift in Sources */,
 				4FF6D909242F2A0900BB8F17 /* SourcesRepository.swift in Sources */,
+				4FF6D9212430A52A00BB8F17 /* UIView+Loading.swift in Sources */,
 				4F13CD6B242AFB05001BEA97 /* NewsAPIEndpoint.swift in Sources */,
 				C6425AC6231569AF008D21B1 /* Resources.swift in Sources */,
 				4F13CD72242AFBF8001BEA97 /* EverythingEndpoint+DTOMapping.swift in Sources */,

@@ -25,16 +25,6 @@ class SourceSearchDashboardCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.backgroundColor = nil
-        let cellCorner = SourceSearchDashboardCollectionViewCell.height / 2
-        self.round(clipToBounds: true, color: nil, width: .zero, corner: cellCorner)
-        self.nameLabel.text = nil
-        self.nameLabel.font = .systemFont(ofSize: 13, weight: .regular)
-        self.nameLabel.textColor = .white
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .black
