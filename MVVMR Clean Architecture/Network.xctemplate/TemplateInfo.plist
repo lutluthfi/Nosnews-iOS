@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultCompletionName</key>
+	<string>Network</string>
+	<key>Description</key>
+	<string>Will generate a bundle of Network module</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>DataTransferService</string>
+			<key>Identifier</key>
+			<string>dataTransferService</string>
+			<key>Name</key>
+			<string>This file will be created as DataTransferService.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>Endpoint</string>
+			<key>Identifier</key>
+			<string>endpoint</string>
+			<key>Name</key>
+			<string>This file will be created as Endpoint.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>NetworkConfig</string>
+			<key>Identifier</key>
+			<string>networkConfig</string>
+			<key>Name</key>
+			<string>This file will be created as NetworkConfig.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>NetworkService</string>
+			<key>Identifier</key>
+			<string>networkService</string>
+			<key>Name</key>
+			<string>This file will be created as NetworkService.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>SortOrder</key>
+	<string>9</string>
+	<key>Summary</key>
+	<string>Will generate a bundle of Network module</string>
+</dict>
+</plist>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DefaultCompletionName</key>
+	<string>Extension Files</string>
+	<key>Description</key>
+	<string>Will generate a bundle of extension files of utils in Presentation layer</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>UIView</string>
+			<key>Identifier</key>
+			<string>uiView</string>
+			<key>Name</key>
+			<string>This file will be created as UIView.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>Date</string>
+			<key>Identifier</key>
+			<string>date</string>
+			<key>Name</key>
+			<string>This file will be created as Date.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>UIColor</string>
+			<key>Identifier</key>
+			<string>uiColor</string>
+			<key>Name</key>
+			<string>This file will be created as UIColor.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>UIImage</string>
+			<key>Identifier</key>
+			<string>uiImage</string>
+			<key>Name</key>
+			<string>This file will be created as uiImage.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>UILabel</string>
+			<key>Identifier</key>
+			<string>uiLabel</string>
+			<key>Name</key>
+			<string>This file will be created as uiLabel.swift by default</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>SortOrder</key>
+	<string>9</string>
+	<key>Summary</key>
+	<string>Will generate a bundle of Network module</string>
+</dict>
+</plist>
