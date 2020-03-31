@@ -83,6 +83,9 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
     }
     
     private func bind(to viewModel: SearchDashboardViewModel) {
+        viewModel.loadingState.observe(on: self) { [weak self] in
+            self?.observeLoadingStateViewModel($0)
+        }
         viewModel.displayedArticles.observe(on: self) { [weak self] in
             self?.observeDisplayedArticlesViewModel($0)
         }
@@ -115,6 +118,17 @@ class SearchDashboardViewController: UIViewController, StoryboardInstantiable {
         displayedSources.forEach { self.sourceCollectionView.register(self.sourceSearchDashboardCollectionViewCellUINib, forCellWithReuseIdentifier: "\(SourceSearchDashboardCollectionViewCell.identifier)\($0.name)") }
         
         self.sourceCollectionView.reloadData()
+    }
+    
+    private func observeLoadingStateViewModel(_ loadingState: SearchDashboardViewModelLoadingState) {
+        switch loadingState {
+        case .hide:
+            LoadingIndicatorView.hide()
+            break
+        case .show:
+            LoadingIndicatorView.show()
+            break
+        }
     }
     
 }
