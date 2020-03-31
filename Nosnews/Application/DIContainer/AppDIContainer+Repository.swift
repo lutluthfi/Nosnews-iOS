@@ -14,4 +14,8 @@ extension AppDIContainer: DIRepositoryFactory {
         return DefaultArticlesRepository(dataTransferService: self.newsDataTransferService)
     }
     
+    func makeSourcesRepository() -> SourcesRepository {
+        return DefaultSourcesRepository(dataTransferService: self.newsDataTransferService)
+    }
+    
 }

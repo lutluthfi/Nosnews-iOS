@@ -29,6 +29,6 @@ class DashboardViewController: UITabBarController, StoryboardInstantiable {
     }
     
     private func setupViewDidLoad() {
-        
+        self.selectedIndex = .zero
     }
 }

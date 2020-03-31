@@ -9,7 +9,15 @@
 import Foundation
 
 extension AppDIContainer: DIUseCaseRepository {
+    func makeFetchEverythingArticlesUseCase() -> FetchEverythingArticlesUseCase {
+        return DefaultFetchEverythingArticlesUseCase(articlesRepository: self.makeArticlesRepository())
+    }
+    
     func makeFetchTopHeadlineArticlesUseCase() -> FetchTopHeadlineArticlesUseCase {
         return DefaultFetchTopHeadlinArticlesUseCase(articlesRepository: self.makeArticlesRepository())
+    }
+    
+    func makeFetchSourcesUseCase() -> FetchSourcesUseCase {
+        return DefaultFetchSourcesUseCase(sourcesRepository: self.makeSourcesRepository())
     }
 }
