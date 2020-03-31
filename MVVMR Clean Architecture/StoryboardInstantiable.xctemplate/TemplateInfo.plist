@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>DefaultCompletionName</key>
+	<string>StoryboardInstantiable</string>
+	<key>Description</key>
+	<string>This file is used to make storyboard instantiable from ViewController</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___</string>
+	<key>SortOrder</key>
+	<integer>1</integer>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Default</key>
+			<string>StoryboardInstantiable</string>
+			<key>Identifier</key>
+			<string>storyboardInstantiable</string>
+			<key>Name</key>
+			<string>This fil will be created as StoryboardInstantiable.swift by dafault</string>
+			<key>Required</key>
+			<string>NO</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Template Author</key>
+	<string>Arif Luthfiansyah</string>
+</dict>
+</plist>
