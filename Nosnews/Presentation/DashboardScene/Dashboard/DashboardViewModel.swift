@@ -8,11 +8,12 @@
 
 import Foundation
 
-struct DashboardViewModelRouteClosure {
+struct DashboardViewModelRoute {
     var pop: (() -> Void)
 }
 
 protocol DashboardViewModelInput {
+    func routing(with route: DashboardViewModelRoute?)
     func viewDidLoad()
 }
 
@@ -23,18 +24,21 @@ protocol DashboardViewModel: DashboardViewModelInput, DashboardViewModelOutput {
 
 class DefaultDashboardViewModel: DashboardViewModel {
     
-    private var route: DashboardViewModelRouteClosure?
+    private var route: DashboardViewModelRoute?
     
     // MARK: - OUTPUT
     
-    init(route: DashboardViewModelRouteClosure) {
-        self.route = route
+    init() {
     }
     
 }
 
 // MARK: - INPUT. View event methods
 extension DefaultDashboardViewModel {
+    
+    func routing(with route: DashboardViewModelRoute?) {
+        self.route = route
+    }
     
     func viewDidLoad() {
     }

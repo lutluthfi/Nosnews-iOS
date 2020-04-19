@@ -52,8 +52,10 @@
 		4F3B1A5E244C9D550081B02A /* KingfisherSwiftUIDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5C244C9D550081B02A /* KingfisherSwiftUIDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		4F3B1A60244C9D550081B02A /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5F244C9D550081B02A /* KingfisherSwiftUI */; };
 		4F3B1A6B244CA1240081B02A /* NosnewsData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F3B1A69244CA1240081B02A /* NosnewsData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F3B1A6E244CA1240081B02A /* NosnewsData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsData.framework */; };
-		4F3B1A6F244CA1240081B02A /* NosnewsData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F3B1A6E244CA1240081B02A /* NosnewsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; };
+		4F3B1A6F244CA1240081B02A /* NosnewsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F3B1A7B244CA5590081B02A /* NosnewsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B1A7A244CA5590081B02A /* NosnewsFrameworkTests.swift */; };
+		4F3B1A7D244CA5590081B02A /* NosnewsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; platformFilter = ios; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
@@ -75,6 +77,13 @@
 			remoteGlobalIDString = 4F3B1A66244CA1240081B02A;
 			remoteInfo = NosnewsData;
 		};
+		4F3B1A7E244CA5590081B02A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6425A8023154476008D21B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F3B1A66244CA1240081B02A;
+			remoteInfo = NosnewsFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,7 +94,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4F3B1A5E244C9D550081B02A /* KingfisherSwiftUIDynamic in Embed Frameworks */,
-				4F3B1A6F244CA1240081B02A /* NosnewsData.framework in Embed Frameworks */,
+				4F3B1A6F244CA1240081B02A /* NosnewsFramework.framework in Embed Frameworks */,
 				4F3B1A59244C9D550081B02A /* KingfisherDynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -130,9 +139,12 @@
 		4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewController.swift; sourceTree = "<group>"; };
 		4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewModel.swift; sourceTree = "<group>"; };
 		4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDashboardViewController.storyboard; sourceTree = "<group>"; };
-		4F3B1A67244CA1240081B02A /* NosnewsData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NosnewsData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NosnewsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3B1A69244CA1240081B02A /* NosnewsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NosnewsData.h; sourceTree = "<group>"; };
 		4F3B1A6A244CA1240081B02A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F3B1A78244CA5590081B02A /* NosnewsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NosnewsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F3B1A7A244CA5590081B02A /* NosnewsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosnewsFrameworkTests.swift; sourceTree = "<group>"; };
+		4F3B1A7C244CA5590081B02A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +168,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4F3B1A75244CA5590081B02A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F3B1A7D244CA5590081B02A /* NosnewsFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C6425A8523154476008D21B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,7 +185,7 @@
 				4F3B1A54244C9D550081B02A /* KingfisherStatic in Frameworks */,
 				4F3B1A56244C9D550081B02A /* KingfisherSwiftUIStatic in Frameworks */,
 				4F3B1A60244C9D550081B02A /* KingfisherSwiftUI in Frameworks */,
-				4F3B1A6E244CA1240081B02A /* NosnewsData.framework in Frameworks */,
+				4F3B1A6E244CA1240081B02A /* NosnewsFramework.framework in Frameworks */,
 				4F3B1A5B244C9D550081B02A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,13 +447,34 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		4F3B1A68244CA1240081B02A /* NosnewsData */ = {
+		4F3B1A68244CA1240081B02A /* NosnewsFramework */ = {
+			isa = PBXGroup;
+			children = (
+				4F13CD3B242AE940001BEA97 /* Common */,
+				C6425ABA231554D3008D21B1 /* Data */,
+				4F13CD39242AE926001BEA97 /* Domain */,
+				4F13CD4A242AEA00001BEA97 /* Infrastructure */,
+				4F3B1A73244CA2D90081B02A /* Resources */,
+			);
+			path = NosnewsFramework;
+			sourceTree = "<group>";
+		};
+		4F3B1A73244CA2D90081B02A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				4F3B1A69244CA1240081B02A /* NosnewsData.h */,
 				4F3B1A6A244CA1240081B02A /* Info.plist */,
 			);
-			path = NosnewsData;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4F3B1A79244CA5590081B02A /* NosnewsFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F3B1A7A244CA5590081B02A /* NosnewsFrameworkTests.swift */,
+				4F3B1A7C244CA5590081B02A /* Info.plist */,
+			);
+			path = NosnewsFrameworkTests;
 			sourceTree = "<group>";
 		};
 		C635417F2318041400CF7120 /* Constant */ = {
@@ -449,7 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				C6425A8A23154476008D21B1 /* Nosnews */,
-				4F3B1A68244CA1240081B02A /* NosnewsData */,
+				4F3B1A68244CA1240081B02A /* NosnewsFramework */,
+				4F3B1A79244CA5590081B02A /* NosnewsFrameworkTests */,
 				C6425A8923154476008D21B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -458,7 +500,8 @@
 			isa = PBXGroup;
 			children = (
 				C6425A8823154476008D21B1 /* Nosnews.app */,
-				4F3B1A67244CA1240081B02A /* NosnewsData.framework */,
+				4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */,
+				4F3B1A78244CA5590081B02A /* NosnewsFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -467,10 +510,6 @@
 			isa = PBXGroup;
 			children = (
 				C6B4EC99232906C200491295 /* Application */,
-				4F13CD3B242AE940001BEA97 /* Common */,
-				C6425ABA231554D3008D21B1 /* Data */,
-				4F13CD39242AE926001BEA97 /* Domain */,
-				4F13CD4A242AEA00001BEA97 /* Infrastructure */,
 				4F13CD3A242AE933001BEA97 /* Presentation */,
 				4F13CD38242AE8CB001BEA97 /* Resources */,
 			);
@@ -533,9 +572,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4F3B1A66244CA1240081B02A /* NosnewsData */ = {
+		4F3B1A66244CA1240081B02A /* NosnewsFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F3B1A72244CA1240081B02A /* Build configuration list for PBXNativeTarget "NosnewsData" */;
+			buildConfigurationList = 4F3B1A72244CA1240081B02A /* Build configuration list for PBXNativeTarget "NosnewsFramework" */;
 			buildPhases = (
 				4F3B1A62244CA1240081B02A /* Headers */,
 				4F3B1A63244CA1240081B02A /* Sources */,
@@ -546,10 +585,28 @@
 			);
 			dependencies = (
 			);
-			name = NosnewsData;
+			name = NosnewsFramework;
 			productName = NosnewsData;
-			productReference = 4F3B1A67244CA1240081B02A /* NosnewsData.framework */;
+			productReference = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		4F3B1A77244CA5590081B02A /* NosnewsFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F3B1A80244CA5590081B02A /* Build configuration list for PBXNativeTarget "NosnewsFrameworkTests" */;
+			buildPhases = (
+				4F3B1A74244CA5590081B02A /* Sources */,
+				4F3B1A75244CA5590081B02A /* Frameworks */,
+				4F3B1A76244CA5590081B02A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F3B1A7F244CA5590081B02A /* PBXTargetDependency */,
+			);
+			name = NosnewsFrameworkTests;
+			productName = NosnewsFrameworkTests;
+			productReference = 4F3B1A78244CA5590081B02A /* NosnewsFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C6425A8723154476008D21B1 /* Nosnews */ = {
 			isa = PBXNativeTarget;
@@ -584,11 +641,14 @@
 		C6425A8023154476008D21B1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Ayo Development";
 				TargetAttributes = {
 					4F3B1A66244CA1240081B02A = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					4F3B1A77244CA5590081B02A = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 					C6425A8723154476008D21B1 = {
@@ -614,13 +674,21 @@
 			projectRoot = "";
 			targets = (
 				C6425A8723154476008D21B1 /* Nosnews */,
-				4F3B1A66244CA1240081B02A /* NosnewsData */,
+				4F3B1A66244CA1240081B02A /* NosnewsFramework */,
+				4F3B1A77244CA5590081B02A /* NosnewsFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4F3B1A65244CA1240081B02A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F3B1A76244CA5590081B02A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -652,6 +720,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F3B1A74244CA5590081B02A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F3B1A7B244CA5590081B02A /* NosnewsFrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,8 +779,14 @@
 /* Begin PBXTargetDependency section */
 		4F3B1A6D244CA1240081B02A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4F3B1A66244CA1240081B02A /* NosnewsData */;
+			target = 4F3B1A66244CA1240081B02A /* NosnewsFramework */;
 			targetProxy = 4F3B1A6C244CA1240081B02A /* PBXContainerItemProxy */;
+		};
+		4F3B1A7F244CA5590081B02A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 4F3B1A66244CA1240081B02A /* NosnewsFramework */;
+			targetProxy = 4F3B1A7E244CA5590081B02A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -730,7 +812,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NosnewsData/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NosnewsFramework/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -738,8 +820,8 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsData;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsFramework;
+				PRODUCT_NAME = NosnewsFramework;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
@@ -759,7 +841,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = NosnewsData/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NosnewsFramework/Resources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -767,14 +849,52 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsData;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsFramework;
+				PRODUCT_NAME = NosnewsFramework;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4F3B1A81244CA5590081B02A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U7M39KWXM;
+				INFOPLIST_FILE = NosnewsFrameworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F3B1A82244CA5590081B02A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5U7M39KWXM;
+				INFOPLIST_FILE = NosnewsFrameworkTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ayodev.NosnewsFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -937,11 +1057,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F3B1A72244CA1240081B02A /* Build configuration list for PBXNativeTarget "NosnewsData" */ = {
+		4F3B1A72244CA1240081B02A /* Build configuration list for PBXNativeTarget "NosnewsFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F3B1A70244CA1240081B02A /* Debug */,
 				4F3B1A71244CA1240081B02A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F3B1A80244CA5590081B02A /* Build configuration list for PBXNativeTarget "NosnewsFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F3B1A81244CA5590081B02A /* Debug */,
+				4F3B1A82244CA5590081B02A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

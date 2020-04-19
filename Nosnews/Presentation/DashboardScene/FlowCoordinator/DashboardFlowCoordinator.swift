@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol DashboardFlowCoordinatorFactory  {
-    func makeDashboardViewController(route: DashboardViewModelRouteClosure) -> UIViewController
+    func makeDashboardViewController() -> UIViewController
     func makeMoviesDashboardViewController(route: MoviesDashboardViewModelRouteClosure) -> UIViewController
     func makeNewsDashboardViewController(route: NewsDashboardViewModelRouteClosure) -> UIViewController
     func makeSearchDashboardViewController(route: SearchDashboardViewModelRouteClosure) -> UIViewController
@@ -27,9 +27,7 @@ class DashboardFlowCoordinator {
     }
     
     func start() {
-        let route = DashboardViewModelRouteClosure(pop: self.pop)
-        if let viewController = self.factory.makeDashboardViewController(route: route) as? DashboardViewController {
-            
+        if let viewController = self.instantiateDashboardViewController() as? DashboardViewController {
             let newsDashboardViewController = self.instantiateNewsDashboardViewController()
             let moviesDashboardViewController = self.instantiateMoviesDashboardViewController()
             let searchDashboardViewController = self.instantiateSearchDashboardViewController()
@@ -38,8 +36,15 @@ class DashboardFlowCoordinator {
             viewController.selectedIndex = 1
             viewController.selectedViewController = newsDashboardViewController
             
-            self.navigationController.pushViewController(viewController, animated: false)
+            self.navigationController.setViewControllers([viewController], animated: true)
         }
+    }
+    
+    private func instantiateDashboardViewController() -> UIViewController {
+        let viewController = self.factory.makeDashboardViewController()
+        let pop = { }
+        (viewController as? DashboardViewController)?.route = .init(pop: pop)
+        return viewController
     }
     
     private func instantiateMoviesDashboardViewController() -> UIViewController {

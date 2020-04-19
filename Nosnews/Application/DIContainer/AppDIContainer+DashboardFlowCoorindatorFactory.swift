@@ -10,12 +10,12 @@ import UIKit
 
 extension AppDIContainer: DashboardFlowCoordinatorFactory {
     
-    func makeDashboardViewController(route: DashboardViewModelRouteClosure) -> UIViewController {
-        return DashboardViewController.create(with: self.makeDashboardViewModel(route: route))
+    func makeDashboardViewController() -> UIViewController {
+        return DashboardViewController.create(with: self.makeDashboardViewModel())
     }
     
-    private func makeDashboardViewModel(route: DashboardViewModelRouteClosure) -> DashboardViewModel {
-        return DefaultDashboardViewModel(route: route)
+    private func makeDashboardViewModel() -> DashboardViewModel {
+        return DefaultDashboardViewModel()
     }
     
     func makeMoviesDashboardViewController(route: MoviesDashboardViewModelRouteClosure) -> UIViewController {

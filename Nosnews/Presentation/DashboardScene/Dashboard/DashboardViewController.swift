@@ -8,7 +8,13 @@
 
 import UIKit
 
-class DashboardViewController: UITabBarController, StoryboardInstantiable {
+protocol DashboardViewControllerShared {
+    var route: DashboardViewModelRoute? { get set }
+}
+
+class DashboardViewController: UITabBarController, StoryboardInstantiable, DashboardViewControllerShared {
+    
+    var route: DashboardViewModelRoute?
     
     private var viewModel: DashboardViewModel!
     
@@ -22,6 +28,7 @@ class DashboardViewController: UITabBarController, StoryboardInstantiable {
         super.viewDidLoad()
         self.setupViewDidLoad()
         self.bind(to: self.viewModel)
+        self.viewModel.routing(with: self.route)
         self.viewModel.viewDidLoad()
     }
     
