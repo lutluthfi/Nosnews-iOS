@@ -8,38 +8,24 @@
 
 import UIKit
 
-extension AppDIContainer: DashboardFlowCoordinatorFactory {
+extension AppDIContainer: DashboardFlowCoordinatorFactory { }
+
+extension AppDIContainer {
     
-    func makeDashboardViewController() -> UIViewController {
-        return DashboardViewController.create(with: self.makeDashboardViewModel())
+    func makeDashboardViewController(
+        requestValue: DashboardViewModelRequestValue,
+        route: DashboardViewModelRoute
+    ) -> UIViewController {
+        let vm = self.makeDashboardViewModel(requestValue: requestValue, route: route)
+        return DashboardViewController.create(with: vm)
     }
     
-    private func makeDashboardViewModel() -> DashboardViewModel {
-        return DefaultDashboardViewModel()
+    private func makeDashboardViewModel(
+        requestValue: DashboardViewModelRequestValue,
+        route: DashboardViewModelRoute
+    ) -> DashboardViewModel {
+        return DefaultDashboardViewModel(requestValue: requestValue, route: route)
     }
     
-    func makeMoviesDashboardViewController(route: MoviesDashboardViewModelRouteClosure) -> UIViewController {
-        return MoviesDashboardViewController.create(with: self.makeMoviesDashboardViewModel(route: route))
-    }
-    
-    private func makeMoviesDashboardViewModel(route: MoviesDashboardViewModelRouteClosure) -> MoviesDashboardViewModel {
-        return DefaultMoviesDashboardViewModel(route: route)
-    }
-    
-    func makeNewsDashboardViewController(route: NewsDashboardViewModelRouteClosure) -> UIViewController {
-        return NewsDashboardViewController.create(with: self.makeNewsDashboardViewModel(route: route))
-    }
-    
-    private func makeNewsDashboardViewModel(route: NewsDashboardViewModelRouteClosure) -> NewsDashboardViewModel {
-        return DefaultNewsDashboardViewModel(route: route, fetchTopHeadlineArticlesUseCase: self.makeFetchTopHeadlineArticlesUseCase())
-    }
-    
-    func makeSearchDashboardViewController(route: SearchDashboardViewModelRouteClosure) -> UIViewController {
-        return SearchDashboardViewController.create(with: self.makeSearchDashboardViewModel(route: route))
-    }
-    
-    private func makeSearchDashboardViewModel(route: SearchDashboardViewModelRouteClosure) -> SearchDashboardViewModel {
-        return DefaultSearchDashboardViewModel(route: route)
-    }
     
 }

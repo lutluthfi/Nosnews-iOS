@@ -9,43 +9,28 @@
 import Foundation
 import UIKit
 
-typealias Factory = FlowCoordinatorFactory & ViewControllerFactory
+typealias PresentationFactory = FlowCoordinatorFactory & ViewControllerFactory
 typealias ViewControllerFactory = DashboardFlowCoordinatorFactory
 
 final class AppDIContainer {
     
-    internal lazy var appConfiguration = AppConfiguration()
-    internal lazy var appCoordinator = self.instantiateAppFlowCoordinator()
+    let navigationController: UINavigationController
     
-    private let navigationController: UINavigationController
-    
+    lazy var appConfiguration = AppConfiguration()
     lazy var newsDataTransferService: DataTransferService = {
         let headers: [String: String] = [:]
-        let queryParameters: [String : String] = ["api_key": appConfiguration.NewsAPIKey, "language": NSLocale.preferredLanguages.first ?? "en"]
-        let config = ApiDataNetworkConfig(baseURL: URL(string: appConfiguration.NewsAPIBaseURL)!, headers: headers, queryParameters: queryParameters)
-        
+        let queryParameters: [String: String] = [
+            "api_key": self.appConfiguration.newsAPIKey,
+            "language": NSLocale.preferredLanguages.first ?? "en"
+        ]
+        let baseURL = URL(string: self.appConfiguration.newsAPIBaseURL)!
+        let config = ApiDataNetworkConfig(baseURL: baseURL, headers: headers, queryParameters: queryParameters)
         let apiDataNetwork = DefaultNetworkService(config: config)
-        
         return DefaultDataTransferService(with: apiDataNetwork)
     }()
     
     init(navigationController: UINavigationController) {
-        self.navigationController = navigationController        
+        self.navigationController = navigationController
     }
     
-    func start() {
-        self.appCoordinator.start()
-    }
-    
-}
-
-extension AppDIContainer: FlowCoordinatorFactory {
-    
-    func instantiateAppFlowCoordinator() -> AppFlowCoordinator {
-        return AppFlowCoordinator(factory: self, navigationController: self.navigationController)
-    }
-    
-    func instantiateDashboardFlowCoordinator() -> DashboardFlowCoordinator {
-        return DashboardFlowCoordinator(navigationController: self.navigationController, factory: self)
-    }
 }

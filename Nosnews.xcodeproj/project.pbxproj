@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F13CD41242AE96C001BEA97 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD3E242AE96C001BEA97 /* DashboardViewController.swift */; };
-		4F13CD42242AE96C001BEA97 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD3F242AE96C001BEA97 /* DashboardViewModel.swift */; };
-		4F13CD43242AE96C001BEA97 /* DashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CD40242AE96C001BEA97 /* DashboardViewController.storyboard */; };
 		4F13CD46242AE986001BEA97 /* DashboardFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD45242AE986001BEA97 /* DashboardFlowCoordinator.swift */; };
 		4F13CD56242AECB8001BEA97 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD55242AECB8001BEA97 /* AppDIContainer.swift */; };
 		4F13CD58242AECC5001BEA97 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD57242AECC5001BEA97 /* AppConfiguration.swift */; };
@@ -32,30 +29,17 @@
 		4F13CD81242B0F2D001BEA97 /* DIUseCaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD80242B0F2D001BEA97 /* DIUseCaseFactory.swift */; };
 		4F13CD83242B0F64001BEA97 /* AppDIContainer+UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD82242B0F64001BEA97 /* AppDIContainer+UseCase.swift */; };
 		4F13CD85242B0FA2001BEA97 /* FetchTopHeadlineArticlesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD84242B0FA2001BEA97 /* FetchTopHeadlineArticlesUseCase.swift */; };
-		4F13CD8C242B115A001BEA97 /* NewsDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD89242B115A001BEA97 /* NewsDashboardViewController.swift */; };
-		4F13CD8D242B115A001BEA97 /* NewsDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD8A242B115A001BEA97 /* NewsDashboardViewModel.swift */; };
-		4F13CD8E242B115A001BEA97 /* NewsDashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CD8B242B115A001BEA97 /* NewsDashboardViewController.storyboard */; };
 		4F13CD90242B1369001BEA97 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD8F242B1369001BEA97 /* StoryboardInstantiable.swift */; };
 		4F13CD92242B1372001BEA97 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD91242B1372001BEA97 /* Observable.swift */; };
-		4F13CD96242B1476001BEA97 /* MoviesDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD93242B1476001BEA97 /* MoviesDashboardViewController.swift */; };
-		4F13CD97242B1476001BEA97 /* MoviesDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD94242B1476001BEA97 /* MoviesDashboardViewModel.swift */; };
-		4F13CD98242B1476001BEA97 /* MoviesDashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CD95242B1476001BEA97 /* MoviesDashboardViewController.storyboard */; };
-		4F13CD9C242B2555001BEA97 /* SearchDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */; };
-		4F13CD9D242B2555001BEA97 /* SearchDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */; };
-		4F13CD9E242B2555001BEA97 /* SearchDashboardViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */; };
-		4F3B1A54244C9D550081B02A /* KingfisherStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A53244C9D550081B02A /* KingfisherStatic */; };
-		4F3B1A56244C9D550081B02A /* KingfisherSwiftUIStatic in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A55244C9D550081B02A /* KingfisherSwiftUIStatic */; };
-		4F3B1A58244C9D550081B02A /* KingfisherDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A57244C9D550081B02A /* KingfisherDynamic */; };
-		4F3B1A59244C9D550081B02A /* KingfisherDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A57244C9D550081B02A /* KingfisherDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		4F3B1A5B244C9D550081B02A /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5A244C9D550081B02A /* Kingfisher */; };
-		4F3B1A5D244C9D550081B02A /* KingfisherSwiftUIDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5C244C9D550081B02A /* KingfisherSwiftUIDynamic */; };
-		4F3B1A5E244C9D550081B02A /* KingfisherSwiftUIDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5C244C9D550081B02A /* KingfisherSwiftUIDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		4F3B1A60244C9D550081B02A /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4F3B1A5F244C9D550081B02A /* KingfisherSwiftUI */; };
 		4F3B1A6B244CA1240081B02A /* NosnewsData.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F3B1A69244CA1240081B02A /* NosnewsData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F3B1A6E244CA1240081B02A /* NosnewsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; };
 		4F3B1A6F244CA1240081B02A /* NosnewsFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4F3B1A7B244CA5590081B02A /* NosnewsFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3B1A7A244CA5590081B02A /* NosnewsFrameworkTests.swift */; };
 		4F3B1A7D244CA5590081B02A /* NosnewsFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */; platformFilter = ios; };
+		4FD4F74E25E2126900E22EE0 /* AppDIContainer+FlowCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4F74D25E2126900E22EE0 /* AppDIContainer+FlowCoordinatorFactory.swift */; };
+		4FD4F75B25E214BE00E22EE0 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4F75825E214BE00E22EE0 /* DashboardViewController.swift */; };
+		4FD4F75C25E214BE00E22EE0 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4F75925E214BE00E22EE0 /* DashboardViewModel.swift */; };
+		4FD4F75D25E214BE00E22EE0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4F75A25E214BE00E22EE0 /* DashboardView.swift */; };
 		C624E7FD232C8B75006FF254 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = C624E7FC232C8B75006FF254 /* colors.txt */; };
 		C6354181231804DE00CF7120 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6354180231804DE00CF7120 /* Constant.swift */; };
 		C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6425A8B23154476008D21B1 /* AppDelegate.swift */; };
@@ -93,9 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4F3B1A5E244C9D550081B02A /* KingfisherSwiftUIDynamic in Embed Frameworks */,
 				4F3B1A6F244CA1240081B02A /* NosnewsFramework.framework in Embed Frameworks */,
-				4F3B1A59244C9D550081B02A /* KingfisherDynamic in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,9 +85,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4F13CD3E242AE96C001BEA97 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		4F13CD3F242AE96C001BEA97 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
-		4F13CD40242AE96C001BEA97 /* DashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DashboardViewController.storyboard; sourceTree = "<group>"; };
 		4F13CD45242AE986001BEA97 /* DashboardFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFlowCoordinator.swift; sourceTree = "<group>"; };
 		4F13CD55242AECB8001BEA97 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		4F13CD57242AECC5001BEA97 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
@@ -128,23 +107,18 @@
 		4F13CD80242B0F2D001BEA97 /* DIUseCaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIUseCaseFactory.swift; sourceTree = "<group>"; };
 		4F13CD82242B0F64001BEA97 /* AppDIContainer+UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDIContainer+UseCase.swift"; sourceTree = "<group>"; };
 		4F13CD84242B0FA2001BEA97 /* FetchTopHeadlineArticlesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchTopHeadlineArticlesUseCase.swift; sourceTree = "<group>"; };
-		4F13CD89242B115A001BEA97 /* NewsDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDashboardViewController.swift; sourceTree = "<group>"; };
-		4F13CD8A242B115A001BEA97 /* NewsDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDashboardViewModel.swift; sourceTree = "<group>"; };
-		4F13CD8B242B115A001BEA97 /* NewsDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsDashboardViewController.storyboard; sourceTree = "<group>"; };
 		4F13CD8F242B1369001BEA97 /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
 		4F13CD91242B1372001BEA97 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		4F13CD93242B1476001BEA97 /* MoviesDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDashboardViewController.swift; sourceTree = "<group>"; };
-		4F13CD94242B1476001BEA97 /* MoviesDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDashboardViewModel.swift; sourceTree = "<group>"; };
-		4F13CD95242B1476001BEA97 /* MoviesDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoviesDashboardViewController.storyboard; sourceTree = "<group>"; };
-		4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewController.swift; sourceTree = "<group>"; };
-		4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDashboardViewModel.swift; sourceTree = "<group>"; };
-		4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchDashboardViewController.storyboard; sourceTree = "<group>"; };
 		4F3B1A67244CA1240081B02A /* NosnewsFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NosnewsFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3B1A69244CA1240081B02A /* NosnewsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NosnewsData.h; sourceTree = "<group>"; };
 		4F3B1A6A244CA1240081B02A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F3B1A78244CA5590081B02A /* NosnewsFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NosnewsFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3B1A7A244CA5590081B02A /* NosnewsFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NosnewsFrameworkTests.swift; sourceTree = "<group>"; };
 		4F3B1A7C244CA5590081B02A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FD4F74D25E2126900E22EE0 /* AppDIContainer+FlowCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDIContainer+FlowCoordinatorFactory.swift"; sourceTree = "<group>"; };
+		4FD4F75825E214BE00E22EE0 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		4FD4F75925E214BE00E22EE0 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		4FD4F75A25E214BE00E22EE0 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C624E7FC232C8B75006FF254 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
 		C6354180231804DE00CF7120 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		C6425A8823154476008D21B1 /* Nosnews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nosnews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,13 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F3B1A5D244C9D550081B02A /* KingfisherSwiftUIDynamic in Frameworks */,
-				4F3B1A58244C9D550081B02A /* KingfisherDynamic in Frameworks */,
-				4F3B1A54244C9D550081B02A /* KingfisherStatic in Frameworks */,
-				4F3B1A56244C9D550081B02A /* KingfisherSwiftUIStatic in Frameworks */,
-				4F3B1A60244C9D550081B02A /* KingfisherSwiftUI in Frameworks */,
 				4F3B1A6E244CA1240081B02A /* NosnewsFramework.framework in Frameworks */,
-				4F3B1A5B244C9D550081B02A /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +186,7 @@
 		4F13CD3A242AE933001BEA97 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				4F13CD3C242AE958001BEA97 /* DashboardScene */,
+				4F13CD3C242AE958001BEA97 /* DashboardFlow */,
 				C6425AA223154E91008D21B1 /* Utils */,
 			);
 			path = Presentation;
@@ -232,26 +200,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		4F13CD3C242AE958001BEA97 /* DashboardScene */ = {
+		4F13CD3C242AE958001BEA97 /* DashboardFlow */ = {
 			isa = PBXGroup;
 			children = (
-				4F13CD3D242AE95E001BEA97 /* Dashboard */,
+				4FD4F75725E2145300E22EE0 /* DashboardUI */,
 				4F13CD44242AE976001BEA97 /* FlowCoordinator */,
-				4F13CD87242B1138001BEA97 /* Movie */,
-				4F13CD86242B1132001BEA97 /* News */,
-				4F13CD88242B1141001BEA97 /* Search */,
 			);
-			path = DashboardScene;
-			sourceTree = "<group>";
-		};
-		4F13CD3D242AE95E001BEA97 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				4F13CD3E242AE96C001BEA97 /* DashboardViewController.swift */,
-				4F13CD3F242AE96C001BEA97 /* DashboardViewModel.swift */,
-				4F13CD40242AE96C001BEA97 /* DashboardViewController.storyboard */,
-			);
-			path = Dashboard;
+			path = DashboardFlow;
 			sourceTree = "<group>";
 		};
 		4F13CD44242AE976001BEA97 /* FlowCoordinator */ = {
@@ -335,11 +290,12 @@
 		4F13CD4F242AEA69001BEA97 /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
-				4F13CD7D242B0E5C001BEA97 /* Factory */,
 				4F13CD55242AECB8001BEA97 /* AppDIContainer.swift */,
 				4F13CD65242AF889001BEA97 /* AppDIContainer+DashboardFlowCoorindatorFactory.swift */,
+				4FD4F74D25E2126900E22EE0 /* AppDIContainer+FlowCoordinatorFactory.swift */,
 				4F13CD7B242B0DAC001BEA97 /* AppDIContainer+Repository.swift */,
 				4F13CD82242B0F64001BEA97 /* AppDIContainer+UseCase.swift */,
+				4F13CD7D242B0E5C001BEA97 /* Factory */,
 			);
 			path = DIContainer;
 			sourceTree = "<group>";
@@ -347,8 +303,8 @@
 		4F13CD50242AEA70001BEA97 /* FlowCoordinator */ = {
 			isa = PBXGroup;
 			children = (
-				4F13CD54242AEAB3001BEA97 /* Factory */,
 				4F13CD63242AF082001BEA97 /* AppFlowCoordinator.swift */,
+				4F13CD54242AEAB3001BEA97 /* Factory */,
 			);
 			path = FlowCoordinator;
 			sourceTree = "<group>";
@@ -417,36 +373,6 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
-		4F13CD86242B1132001BEA97 /* News */ = {
-			isa = PBXGroup;
-			children = (
-				4F13CD89242B115A001BEA97 /* NewsDashboardViewController.swift */,
-				4F13CD8A242B115A001BEA97 /* NewsDashboardViewModel.swift */,
-				4F13CD8B242B115A001BEA97 /* NewsDashboardViewController.storyboard */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
-		4F13CD87242B1138001BEA97 /* Movie */ = {
-			isa = PBXGroup;
-			children = (
-				4F13CD93242B1476001BEA97 /* MoviesDashboardViewController.swift */,
-				4F13CD94242B1476001BEA97 /* MoviesDashboardViewModel.swift */,
-				4F13CD95242B1476001BEA97 /* MoviesDashboardViewController.storyboard */,
-			);
-			path = Movie;
-			sourceTree = "<group>";
-		};
-		4F13CD88242B1141001BEA97 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				4F13CD99242B2555001BEA97 /* SearchDashboardViewController.swift */,
-				4F13CD9A242B2555001BEA97 /* SearchDashboardViewModel.swift */,
-				4F13CD9B242B2555001BEA97 /* SearchDashboardViewController.storyboard */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		4F3B1A68244CA1240081B02A /* NosnewsFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +401,16 @@
 				4F3B1A7C244CA5590081B02A /* Info.plist */,
 			);
 			path = NosnewsFrameworkTests;
+			sourceTree = "<group>";
+		};
+		4FD4F75725E2145300E22EE0 /* DashboardUI */ = {
+			isa = PBXGroup;
+			children = (
+				4FD4F75A25E214BE00E22EE0 /* DashboardView.swift */,
+				4FD4F75825E214BE00E22EE0 /* DashboardViewController.swift */,
+				4FD4F75925E214BE00E22EE0 /* DashboardViewModel.swift */,
+			);
+			path = DashboardUI;
 			sourceTree = "<group>";
 		};
 		C635417F2318041400CF7120 /* Constant */ = {
@@ -550,10 +486,10 @@
 		C6B4EC99232906C200491295 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4F13CD57242AECC5001BEA97 /* AppConfiguration.swift */,
 				C6425A8B23154476008D21B1 /* AppDelegate.swift */,
 				4F13CD4F242AEA69001BEA97 /* DIContainer */,
 				4F13CD50242AEA70001BEA97 /* FlowCoordinator */,
-				4F13CD57242AECC5001BEA97 /* AppConfiguration.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -624,12 +560,6 @@
 			);
 			name = Nosnews;
 			packageProductDependencies = (
-				4F3B1A53244C9D550081B02A /* KingfisherStatic */,
-				4F3B1A55244C9D550081B02A /* KingfisherSwiftUIStatic */,
-				4F3B1A57244C9D550081B02A /* KingfisherDynamic */,
-				4F3B1A5A244C9D550081B02A /* Kingfisher */,
-				4F3B1A5C244C9D550081B02A /* KingfisherSwiftUIDynamic */,
-				4F3B1A5F244C9D550081B02A /* KingfisherSwiftUI */,
 			);
 			productName = Nosnews;
 			productReference = C6425A8823154476008D21B1 /* Nosnews.app */;
@@ -667,7 +597,6 @@
 			);
 			mainGroup = C6425A7F23154476008D21B1;
 			packageReferences = (
-				4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = C6425A8923154476008D21B1 /* Products */;
 			projectDirPath = "";
@@ -699,16 +628,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F13CD43242AE96C001BEA97 /* DashboardViewController.storyboard in Resources */,
-				4F13CD8E242B115A001BEA97 /* NewsDashboardViewController.storyboard in Resources */,
 				C6425A9923154478008D21B1 /* LaunchScreen.storyboard in Resources */,
-				4F13CD98242B1476001BEA97 /* MoviesDashboardViewController.storyboard in Resources */,
 				C6425AAD231550E2008D21B1 /* NunitoSans-BoldItalic.ttf in Resources */,
 				C6425AAE231550E2008D21B1 /* NunitoSans-Regular.ttf in Resources */,
 				C624E7FD232C8B75006FF254 /* colors.txt in Resources */,
 				C6425AAC231550E2008D21B1 /* NunitoSans-Italic.ttf in Resources */,
 				C6425A9623154478008D21B1 /* Assets.xcassets in Resources */,
-				4F13CD9E242B2555001BEA97 /* SearchDashboardViewController.storyboard in Resources */,
 				C6425AAF231550E2008D21B1 /* NunitoSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,37 +662,33 @@
 			files = (
 				4F13CD5E242AEEF4001BEA97 /* NetworkService.swift in Sources */,
 				4F13CD90242B1369001BEA97 /* StoryboardInstantiable.swift in Sources */,
-				4F13CD9C242B2555001BEA97 /* SearchDashboardViewController.swift in Sources */,
 				4F13CD58242AECC5001BEA97 /* AppConfiguration.swift in Sources */,
 				4F13CD70242AFBB9001BEA97 /* ArticlePage.swift in Sources */,
 				4F13CD74242B00DC001BEA97 /* ArticlesRepository.swift in Sources */,
 				4F13CD6E242AFB48001BEA97 /* Article.swift in Sources */,
-				4F13CD96242B1476001BEA97 /* MoviesDashboardViewController.swift in Sources */,
 				4F13CD60242AEEF4001BEA97 /* NetworkConfig.swift in Sources */,
+				4FD4F75B25E214BE00E22EE0 /* DashboardViewController.swift in Sources */,
 				4F13CD7F242B0E6D001BEA97 /* DIRepositoryFactory.swift in Sources */,
 				4F13CD7C242B0DAC001BEA97 /* AppDIContainer+Repository.swift in Sources */,
-				4F13CD9D242B2555001BEA97 /* SearchDashboardViewModel.swift in Sources */,
 				4F13CD56242AECB8001BEA97 /* AppDIContainer.swift in Sources */,
-				4F13CD8C242B115A001BEA97 /* NewsDashboardViewController.swift in Sources */,
 				C6425A8C23154476008D21B1 /* AppDelegate.swift in Sources */,
+				4FD4F74E25E2126900E22EE0 /* AppDIContainer+FlowCoordinatorFactory.swift in Sources */,
+				4FD4F75C25E214BE00E22EE0 /* DashboardViewModel.swift in Sources */,
 				4F13CD6B242AFB05001BEA97 /* NewsAPIEndpoint.swift in Sources */,
 				C6425AC6231569AF008D21B1 /* Resources.swift in Sources */,
 				4F13CD72242AFBF8001BEA97 /* Article+DTOMapping.swift in Sources */,
+				4FD4F75D25E214BE00E22EE0 /* DashboardView.swift in Sources */,
 				4F13CD5D242AEEF4001BEA97 /* DataTransferService.swift in Sources */,
 				4F13CD92242B1372001BEA97 /* Observable.swift in Sources */,
 				4F13CD66242AF889001BEA97 /* AppDIContainer+DashboardFlowCoorindatorFactory.swift in Sources */,
 				4F13CD64242AF082001BEA97 /* AppFlowCoordinator.swift in Sources */,
-				4F13CD41242AE96C001BEA97 /* DashboardViewController.swift in Sources */,
-				4F13CD42242AE96C001BEA97 /* DashboardViewModel.swift in Sources */,
 				4F13CD79242B01AF001BEA97 /* DefaultArticlesRepository.swift in Sources */,
 				C6354181231804DE00CF7120 /* Constant.swift in Sources */,
 				4F13CD83242B0F64001BEA97 /* AppDIContainer+UseCase.swift in Sources */,
-				4F13CD8D242B115A001BEA97 /* NewsDashboardViewModel.swift in Sources */,
 				4F13CD46242AE986001BEA97 /* DashboardFlowCoordinator.swift in Sources */,
 				4F13CD77242B012E001BEA97 /* Cancellable.swift in Sources */,
 				4F13CD62242AF036001BEA97 /* FlowCoordinatorFactory.swift in Sources */,
 				4F13CD81242B0F2D001BEA97 /* DIUseCaseFactory.swift in Sources */,
-				4F13CD97242B1476001BEA97 /* MoviesDashboardViewModel.swift in Sources */,
 				4F13CD5F242AEEF4001BEA97 /* Endpoint.swift in Sources */,
 				C6425A9423154476008D21B1 /* Nosnews.xcdatamodeld in Sources */,
 				4F13CD85242B0FA2001BEA97 /* FetchTopHeadlineArticlesUseCase.swift in Sources */,
@@ -1094,50 +1015,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.13.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4F3B1A53244C9D550081B02A /* KingfisherStatic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherStatic;
-		};
-		4F3B1A55244C9D550081B02A /* KingfisherSwiftUIStatic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUIStatic;
-		};
-		4F3B1A57244C9D550081B02A /* KingfisherDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherDynamic;
-		};
-		4F3B1A5A244C9D550081B02A /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		4F3B1A5C244C9D550081B02A /* KingfisherSwiftUIDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUIDynamic;
-		};
-		4F3B1A5F244C9D550081B02A /* KingfisherSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4F3B1A52244C9D550081B02A /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = KingfisherSwiftUI;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C6425A9223154476008D21B1 /* Nosnews.xcdatamodeld */ = {
