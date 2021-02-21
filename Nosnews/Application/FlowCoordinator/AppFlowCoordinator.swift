@@ -9,20 +9,26 @@
 import Foundation
 import UIKit
 
-final class AppFlowCoordinator {
+protocol AppFlowCoordinator {
+    func start()
+}
+
+enum AppFlowCoordinatorInstructor {
     
-    private let factory: Factory
-    private let navigationController: UINavigationController
+}
+
+final class DefaultAppFlowCoordinator: AppFlowCoordinator {
+    let presentationFactory: PresentationFactory
+    let navigationController: UINavigationController
     
-    init(factory: Factory, navigationController: UINavigationController) {
-        self.factory = factory
+    init(presentationFactory: PresentationFactory, navigationController: UINavigationController) {
+        self.presentationFactory = presentationFactory
         self.navigationController = navigationController
     }
     
     func start() {
-        // Do logic like if not signed in yet go to sign in scene
-        let coordinator = self.factory.instantiateDashboardFlowCoordinator()
-        coordinator.start()
+        let requestValue = DashboardViewModelRequestValue()
+        let instructor = DashboardFlowCoordinatorInstructor.dashboard(requestValue)
+        self.presentationFactory.instantiateDashboardFlowCoordinator().start(with: instructor)
     }
-    
 }

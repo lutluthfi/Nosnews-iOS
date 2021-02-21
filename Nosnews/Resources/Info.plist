@@ -2,10 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NewsAPIBaseURL</key>
-	<string>http://newsapi.org/v2/</string>
-	<key>NewsAPIKey</key>
-	<string>91e59869aac749cba405a98a842ac644</string>
+	<key>NewsAPI</key>
+	<dict>
+		<key>BaseURL</key>
+		<string>http://newsapi.org/v2/</string>
+		<key>APIKey</key>
+		<string>91e59869aac749cba405a98a842ac644</string>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

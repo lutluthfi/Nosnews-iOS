@@ -9,9 +9,7 @@
 import Foundation
 
 extension AppDIContainer: DIRepositoryFactory {
-    
     func makeArticlesRepository() -> ArticlesRepository {
         return DefaultArticlesRepository(dataTransferService: self.newsDataTransferService)
     }
-    
 }

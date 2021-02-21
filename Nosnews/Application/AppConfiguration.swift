@@ -10,17 +10,19 @@ import Foundation
 
 final class AppConfiguration {
     
-    lazy var NewsAPIKey: String = {
-        guard let key = Bundle.main.object(forInfoDictionaryKey: "NewsAPIKey") as? String else {
-            fatalError("NewsAPIKey must not be empty in plist")
-        }
-        return key
-    }()
-    lazy var NewsAPIBaseURL: String = {
-        guard let baseURL = Bundle.main.object(forInfoDictionaryKey: "NewsAPIBaseURL") as? String else {
-            fatalError("NewsAPIBaseURL must not be empty in plist")
+    lazy var newsAPIBaseURL: String = {
+        guard let api = Bundle.main.object(forInfoDictionaryKey: "NewsAPI") as? [String: String],
+              let baseURL = api["BaseURL"] else {
+            fatalError("BaseURL in NewsAPI must not be empty in plist")
         }
         return baseURL
+    }()
+    lazy var newsAPIKey: String = {
+        guard let api = Bundle.main.object(forInfoDictionaryKey: "NewsAPI") as? [String: String],
+              let key = api["APIKey"] else {
+            fatalError("APIKey in NewsAPI must not be empty in plist")
+        }
+        return key
     }()
     
 }
